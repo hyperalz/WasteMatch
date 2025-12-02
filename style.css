@@ -2,7 +2,7 @@
 
 /* Hero Section Background */
 .hero-bg {
-    background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,7 +23,7 @@
     bottom: -10%;
     width: 120%;
     height: 120%;
-    background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
     background-size: cover;
     background-position: center;
     filter: blur(12px);
@@ -149,5 +149,88 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #059669;
+}
+
+/* ROI Calculator Styles */
+#volumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #e5e7eb;
+    outline: none;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #22C55E;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#volumeSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #22C55E;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}
+
+/* Chat Widget Styles */
+#liveChatWidget {
+    font-family: inherit;
+}
+
+#chatWindow {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Comparison Table Styles */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table th:first-child {
+    border-top-left-radius: 0.75rem;
+}
+
+table th:last-child {
+    border-top-right-radius: 0.75rem;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    #chatWindow {
+        width: calc(100vw - 3rem);
+        right: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    table {
+        font-size: 0.875rem;
+    }
+    
+    table th,
+    table td {
+        padding: 0.75rem 0.5rem;
+    }
 }
 

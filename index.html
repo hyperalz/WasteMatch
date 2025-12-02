@@ -3,467 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WasteMatch | Connect Waste Generators with Haulers & Buyers</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Stop wasting £126/tonne on landfill tax. WasteMatch matches your muck with local buyers instantly. Get ahead of the 2026 Digital Waste Tracking mandate - we handle compliance automatically.">
+    <meta name="keywords" content="waste brokerage, construction waste, waste matching, landfill tax, waste disposal, UK waste management, EA licensed, 2026 digital tracking">
+    <title>WasteMatch | Stop Wasting £126/Tonne on Landfill Tax - Turn Your Site Waste into Savings</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS (for navbar and footer components) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     
-    <!-- Contact Form Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
-        <div class="flex items-center justify-center min-h-screen p-4">
-            <div class="bg-white rounded-2xl max-w-md w-full p-8 relative">
-                <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                    <i data-feather="x" class="w-6 h-6"></i>
-                </button>
-                
-                <div class="text-center mb-6">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Join the platform</h3>
-                    <p class="text-gray-600">Start matching waste loads today</p>
-                </div>
-                
-                <form id="contactForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Full name</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Phone number</label>
-                        <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">I am a...</label>
-                        <select name="role" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
-                            <option value="">Select your role</option>
-                            <option value="generator">Waste Generator (Builder/Site Manager)</option>
-                            <option value="hauler">Hauler/Transport Provider</option>
-                            <option value="buyer">Buyer (Need Fill/Aggregates)</option>
-                            <option value="broker">Waste Broker</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Typical monthly volume</label>
-                        <select name="volume" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
-                            <option value="">Select volume</option>
-                            <option value="0-100">0-100 tonnes/month</option>
-                            <option value="100-500">100-500 tonnes/month</option>
-                            <option value="500-1000">500-1,000 tonnes/month</option>
-                            <option value="1000+">1,000+ tonnes/month</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Tell us about your needs</label>
-                        <textarea name="message" rows="3" placeholder="What waste types do you handle? What challenges do you face?" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"></textarea>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <input type="checkbox" name="consent" required class="mr-2">
-                        <label class="text-sm text-gray-600">I agree to be contacted about WasteMatch services</label>
-                    </div>
-                    
-                    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
-                        Get Started
-                    </button>
-                </form>
-                
-                <p class="text-xs text-gray-500 text-center mt-4">
-                    We'll contact you within 24 hours to set up your account
-                </p>
-            </div>
-        </div>
-    </div>
+    <!-- Schema Markup for Local Business and Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "WasteMatch",
+      "description": "B2B marketplace for industrial waste materials. Connect waste generators with buyers and haulers. EA Licensed, GDPR Compliant waste brokerage platform. 2026 Digital Waste Tracking ready.",
+      "url": "https://hyperalz.github.io/WasteMatch/",
+      "telephone": "+44-XXX-XXX-XXXX",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "priceRange": "££",
+      "serviceType": "Waste Brokerage Platform",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      }
+    }
+    </script>
+    
+    <style>
+        /* Mobile-first responsive styles */
+        .hero-bg {
+            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
+            width: 120%;
+            height: 120%;
+            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: blur(12px);
+            z-index: 0;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+        }
+        .hero-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .urgency-badge {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .testimonial-box {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+        }
+        .exit-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .exit-popup.show {
+            display: flex;
+        }
+        .simple-calculator {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 2px solid #22c55e;
+        }
+        .carbon-message {
+            background: #dcfce7;
+            border-left: 4px solid #22c55e;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        /* Fix for fixed navbar */
+        body {
+            padding-top: 64px;
+        }
+        /* Hero should start at top (body padding handles navbar spacing) */
+        .hero-bg {
+            margin-top: -64px;
+        }
+        /* Ensure hero content is visible */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-light">
     <custom-navbar></custom-navbar>
     
     <!-- Hero Section -->
     <div class="hero-bg">
-        <div class="hero-content">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">Match waste loads with buyers in minutes, not days</h1>
-            <p class="text-xl md:text-2xl mb-8 leading-relaxed text-white">The platform connecting construction sites, haulers, and buyers. Save £5–£10 per tonne on disposal while finding the perfect match for your loads.<br class="hidden md:block"> No trucks. No backache. Just smart matching.</p>
-            <div class="flex items-center justify-center gap-4 text-white/90 text-sm mb-6">
-                <div class="flex items-center">
-                    <i data-feather="shield-check" class="w-5 h-5 mr-2"></i>
-                    <span>Verified Users Only</span>
-                </div>
-                <div class="flex items-center">
-                    <i data-feather="check-circle" class="w-5 h-5 mr-2"></i>
-                    <span>EA License Verified</span>
-                </div>
-                <div class="flex items-center">
-                    <i data-feather="lock" class="w-5 h-5 mr-2"></i>
-                    <span>Scam-Free Platform</span>
-                </div>
+        <div class="hero-content container">
+            <div class="urgency-badge">2026 Digital Tracking Mandate Ready</div>
+            <h1 class="text-white fw-bold mb-4">
+                Stop Wasting £126/Tonne on Landfill Tax.<br>Turn Your Site Waste into Savings.
+            </h1>
+            <p class="text-white mb-5 lead">
+                WasteMatch matches your muck with local buyers instantly. Get ahead of the 2026 Digital Waste Tracking mandate - we handle compliance automatically.
+            </p>
+            
+            <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-4">
+                <a href="#waste-audit" class="btn btn-success btn-lg px-5 py-3 fw-semibold" style="background: #22c55e; border: none;">
+                    Get Your Free Site Waste Audit →
+                </a>
+                <a href="#calculator" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">
+                    See How Much You Can Save
+                </a>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#how-it-works" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-medium transition duration-300 shadow-lg hover:shadow-xl">
-                    See How It Works
-                </a>
-                <a href="#contact" class="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-medium transition duration-300 shadow-lg hover:shadow-xl">
-                    Join Platform
-                </a>
+            
+            <div class="d-flex flex-wrap justify-content-center gap-3 text-white small" id="hero-badges">
+                <span class="badge px-3 py-2 rounded-pill d-flex align-items-center text-white" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);">
+                    <svg class="me-1" width="14" height="14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M9 12l2 2 4-4"></path>
+                    </svg>
+                    <span>EA Licensed</span>
+                </span>
+                <span class="badge px-3 py-2 rounded-pill d-flex align-items-center text-white" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);">
+                    <svg class="me-1" width="14" height="14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <span>GDPR Compliant</span>
+                </span>
+                <span class="badge px-3 py-2 rounded-pill d-flex align-items-center text-white" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);">
+                    <svg class="me-1" width="14" height="14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>Insured</span>
+                </span>
             </div>
         </div>
     </div>
 
-    <!-- Problem/Solution Fit -->
-    <section class="py-20 px-4 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Is WasteMatch right for you?</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Understanding if our platform fits your operation helps everyone make better decisions</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-green-50 p-8 rounded-xl border-l-4 border-green-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                        <span class="text-green-600 mr-2">✅</span> Perfect for you if:
-                    </h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span>You're a builder/site manager with waste to dispose of</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span>You're a hauler looking to fill empty return journeys</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span>You need aggregates/fill and want to save on material costs</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-green-500 mr-2 mt-1">•</span>
-                            <span>You're tired of phone calls and want instant matching</span>
-                        </li>
-                    </ul>
+    <!-- Site Manager Testimonial - Above the Fold -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="testimonial-box">
+                <div class="row align-items-center">
+                    <div class="col-md-2 text-center mb-3 mb-md-0">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" 
+                             alt="Site Manager" 
+                             class="rounded-circle" 
+                             style="width: 80px; height: 80px; object-fit: cover; border: 3px solid #22c55e;">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="d-flex mb-2">
+                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="fs-5 fst-italic text-dark mb-2">"Saved £8,500 on our last site's hardcore. WasteMatch handled all the EA paperwork - game changer for us."</p>
+                        <p class="mb-0"><strong>John, Site Manager - SE London Development</strong><br>
+                        <span class="text-muted">Midlands Construction Ltd</span></p>
+                    </div>
                 </div>
-                
-                <div class="bg-red-50 p-8 rounded-xl border-l-4 border-red-500">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                        <span class="text-red-600 mr-2">❌</span> Not the best fit if:
-                    </h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="text-red-500 mr-2 mt-1">•</span>
-                            <span>You handle hazardous waste requiring special permits</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-red-500 mr-2 mt-1">•</span>
-                            <span>You need same-day emergency disposal (we focus on planned loads)</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-red-500 mr-2 mt-1">•</span>
-                            <span>You're a large enterprise needing custom integration</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-red-500 mr-2 mt-1">•</span>
-                            <span>You only handle very small volumes (<10 tonnes/month)</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="text-center">
-                <p class="text-gray-600 mb-6">Not sure? Join the platform and we'll help you find the right matches.</p>
-                <a href="#contact" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition duration-300 inline-block">
-                    Join Platform
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- Verification & Trust Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-green-50 to-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center justify-center w-20 h-20 bg-green-600 rounded-full mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield-check">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        <polyline points="9 12 11 14 15 10"></polyline>
-                    </svg>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Verified Users Only—Safe Matches Every Time</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We check EA licenses so you don't get scammed. Every user is verified before they can match, protecting you from fraud and ensuring compliance.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-green-200">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard-check">
-                            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
-                            <rect x="9" y="3" width="6" height="4" rx="2"></rect>
-                            <polyline points="9 12 11 14 15 10"></polyline>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">EA License Verification</h3>
-                    <p class="text-gray-600 text-center mb-4">Every hauler and broker must provide valid Environment Agency waste carrier licenses. We verify against the public register before allowing matches.</p>
-                    <div class="bg-green-50 rounded-lg p-3 text-center">
-                        <p class="text-xs text-gray-700"><strong>Legal requirement:</strong> Prevents fly-tipping and illegal disposal</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-green-200">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Companies House Check</h3>
-                    <p class="text-gray-600 text-center mb-4">All businesses are verified through Companies House to confirm they're legitimate, active companies with proper directors and registration.</p>
-                    <div class="bg-green-50 rounded-lg p-3 text-center">
-                        <p class="text-xs text-gray-700"><strong>Prevents:</strong> Fake businesses and organized crime operations</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-green-200">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <i data-feather="alert-triangle" class="w-8 h-8 text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Scam Prevention</h3>
-                    <p class="text-gray-600 text-center mb-4">With £1 billion lost annually to waste fraud, our verification system protects you from fake haulers, bogus invoices, and illegal dumping.</p>
-                    <div class="bg-green-50 rounded-lg p-3 text-center">
-                        <p class="text-xs text-gray-700"><strong>Result:</strong> Higher user retention and trust vs. unverified platforms</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Why Verification Matters</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start">
-                                <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
-                                    <span class="text-red-600 text-xs font-bold">!</span>
-                                </div>
+    <!-- Regulatory Compliance Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="h1 fw-bold text-primary mb-4">2026 Digital Waste Tracking Mandate? We've Got You Covered.</h2>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
                                 <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Legal Protection</h4>
-                                    <p class="text-sm text-gray-600">Under UK waste laws, platforms must verify users or risk fines up to £5,000+ for "aiding and abetting" waste crimes. We handle this so you don't have to.</p>
+                                    <strong>Automated Waste Transfer Notes</strong>
+                                    <p class="text-muted small mb-0">No more paperwork</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
-                                <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
-                                    <span class="text-red-600 text-xs font-bold">!</span>
-                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
                                 <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Financial Safety</h4>
-                                    <p class="text-sm text-gray-600">Unverified haulers can take payments then illegally dump waste, leaving you liable for £500–£50,000+ cleanup costs. Our verification prevents this.</p>
+                                    <strong>EA License Verification on Every User</strong>
+                                    <p class="text-muted small mb-0">Stop fraud before it starts</p>
                                 </div>
                             </div>
-                            <div class="flex items-start">
-                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
-                                    <i data-feather="check" class="w-4 h-4 text-green-600"></i>
-                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
                                 <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Platform Trust</h4>
-                                    <p class="text-sm text-gray-600">Verified users get priority matching and verified badges, building trust that leads to 30% higher booking rates and repeat business.</p>
+                                    <strong>Full Audit Trail for Duty of Care</strong>
+                                    <p class="text-muted small mb-0">Ready for October 2026 inspections</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
+                                <div>
+                                    <strong>Carbon Reporting for Your ESG Goals</strong>
+                                    <p class="text-muted small mb-0">Automatic Scope 3 tracking</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 rounded-lg p-6">
-                        <h4 class="font-semibold text-gray-800 mb-4">Verification Process</h4>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-3 text-sm font-bold">1</div>
-                                <span class="text-sm text-gray-700">Upload EA waste carrier license</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-3 text-sm font-bold">2</div>
-                                <span class="text-sm text-gray-700">Verify Companies House registration</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-3 text-sm font-bold">3</div>
-                                <span class="text-sm text-gray-700">Check environmental permits (if applicable)</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-3 text-sm font-bold">4</div>
-                                <span class="text-sm text-gray-700">Get verified badge and start matching</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
-                            <p class="text-xs text-gray-700">
-                                <strong>Fast & Free:</strong> Verification takes 24-48 hours. All checks use free public registers—no hidden costs.
-                            </p>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            
-            <div class="mt-12 text-center">
-                <div class="inline-flex items-center space-x-2 bg-white px-6 py-3 rounded-full shadow-lg">
-                    <i data-feather="shield" class="w-5 h-5 text-green-600"></i>
-                    <span class="text-gray-700 font-medium">40%+ of waste industry hit by fraud—we prevent it</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Proposition -->
-    <section class="py-20 px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">The waste matching problem solved</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We connect waste generators with haulers and buyers, eliminating the phone calls, delays, and missed opportunities</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-4">
-                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                    </svg>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Save £5–£10 per tonne</h3>
-                    <p class="text-gray-600">Match loads directly with buyers, cutting out middlemen and reducing disposal costs</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <i data-feather="clock" class="w-12 h-12 text-green-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Match in minutes</h3>
-                    <p class="text-gray-600">Post your load with a photo and postcode, get instant matches from nearby haulers and buyers</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <i data-feather="smartphone" class="w-12 h-12 text-green-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">No back strain</h3>
-                    <p class="text-gray-600">White-collar operation—manage everything from your phone or laptop, no physical handling required</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-20 bg-gray-100 px-4">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-16">How WasteMatch works</h2>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="mb-8">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-green-100 text-green-600 font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4">1</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Post your load</h3>
-                                <p class="text-gray-600">Upload a photo, specify tonnage, type (clean fill, hardcore, etc.), and location</p>
-                            </div>
+                <div class="col-lg-4 text-center">
+                    <div class="bg-success bg-opacity-10 p-4 rounded-3 border border-success">
+                        <div class="mb-3">
+                            <svg width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24" class="mx-auto">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <path d="M9 12l2 2 4-4"></path>
+                            </svg>
                         </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-green-100 text-green-600 font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4">2</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Get instant matches</h3>
-                                <p class="text-gray-600">Our platform matches you with nearby haulers and buyers based on location and needs</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-8">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-green-100 text-green-600 font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4">3</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Connect & transact</h3>
-                                <p class="text-gray-600">Review quotes, choose your match, and handle the transaction through the platform</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="flex items-start mb-4">
-                            <div class="bg-green-100 text-green-600 font-bold rounded-full w-10 h-10 flex items-center justify-center mr-4">4</div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-2">Track & manage</h3>
-                                <p class="text-gray-600">Monitor your loads, track transactions, and build your network of trusted partners</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=1024&q=80" alt="Construction waste management" class="rounded-lg mb-6 w-full">
-                    <div class="flex items-center">
-                        <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-2"></i>
-                        <span class="text-gray-700">Clean fill & aggregates matching</span>
-                    </div>
-                    <div class="flex items-center mt-3">
-                        <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-2"></i>
-                        <span class="text-gray-700">EA compliance support</span>
-                    </div>
-                    <div class="flex items-center mt-3">
-                        <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-2"></i>
-                        <span class="text-gray-700">Real-time location-based matching</span>
-                    </div>
-                    <div class="flex items-center mt-3">
-                        <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-2"></i>
-                        <span class="text-gray-700">Secure payment processing</span>
-                    </div>
-                    <div class="flex items-center mt-3">
-                        <i data-feather="check-circle" class="w-6 h-6 text-green-500 mr-2"></i>
-                        <span class="text-gray-700">Mobile & desktop access</span>
+                        <h3 class="h5 fw-bold text-success">EA Compliance Ready</h3>
+                        <p class="text-muted small mb-0">Fully compliant with 2026 Digital Waste Tracking requirements</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Carbon Neutrality & B-Corp Section -->
-    <section class="py-20 px-4 bg-gradient-to-b from-white to-green-50">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center justify-center w-20 h-20 bg-green-600 rounded-full mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
-                        <path d="M12 6v6l4 2"></path>
-                    </svg>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Every match cuts emissions—go green while saving green!</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">WasteMatch is B-Corp aligned, promoting circular economy and ethical waste management. Every transaction tracks CO₂ savings and generates verifiable ESG reports.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-green-200">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="8" r="7"></circle>
-                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">B-Corp Aligned</h3>
-                    <p class="text-gray-600 text-center mb-4">Certified for social and environmental impact. We promote circular economy principles and ethical waste management practices that benefit communities and the planet.</p>
-                    <div class="bg-green-50 rounded-lg p-3 text-center">
-                        <p class="text-xs text-gray-700"><strong>Impact:</strong> Every match supports sustainable waste practices</p>
+    <!-- How Site Managers Use WasteMatch -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center h1 fw-bold text-primary mb-5">How Site Managers Use WasteMatch</h2>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <svg width="40" height="40" fill="none" stroke="#1e40af" stroke-width="2" viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">1. Snap & Post</h3>
+                        <p class="text-muted mb-0">Take photo of your pile, add location</p>
                     </div>
                 </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-green-200">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">CO₂ Savings Tracking</h3>
-                    <p class="text-gray-600 text-center mb-4">Every tonne diverted from landfill avoids 0.5–1 tonne of CO₂ emissions (methane prevention). We track and report these savings automatically.</p>
-                    <div class="bg-green-50 rounded-lg p-3 text-center">
-                        <p class="text-xs text-gray-700"><strong>Example:</strong> 200t match = 100–200kg CO₂ saved</p>
+                <div class="col-md-4 text-center">
+                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <svg width="40" height="40" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">2. Match & Chat</h3>
+                        <p class="text-muted mb-0">Get quotes within hours, negotiate in-app</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Benefits for Your Business</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="col-md-4 text-center">
+                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <svg width="40" height="40" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                                 <polyline points="14 2 14 8 20 8"></polyline>
                                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -471,374 +359,129 @@
                                 <polyline points="10 9 9 9 8 9"></polyline>
                             </svg>
                         </div>
-                        <h4 class="font-semibold text-gray-800 mb-2">ESG Reports & Certificates</h4>
-                        <p class="text-sm text-gray-600">Generate verifiable reports for your ESG tracking. Perfect for CSRD/ESRS compliance and sustainability reporting.</p>
+                        <h3 class="h5 fw-bold mb-3">3. We Handle Compliance</h3>
+                        <p class="text-muted mb-0">Auto-generated Waste Transfer Notes, EA audit trail</p>
                     </div>
-                    
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                                <polyline points="17 6 23 6 23 12"></polyline>
-                            </svg>
-                        </div>
-                        <h4 class="font-semibold text-gray-800 mb-2">Scope 3 Reductions</h4>
-                        <p class="text-sm text-gray-600">Meet carbon neutral targets with Scope 3 emission reductions. Track progress toward net-zero goals automatically.</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                            </svg>
-                        </div>
-                        <h4 class="font-semibold text-gray-800 mb-2">Tax Incentives & Reputation</h4>
-                        <p class="text-sm text-gray-600">Qualify for R&D credits and boost your reputation with eco-conscious clients. Show your commitment to sustainability.</p>
-                    </div>
-                </div>
-                
-                <div class="mt-8 p-6 bg-green-50 rounded-lg border border-green-200">
-                    <div class="flex items-center justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <h4 class="text-lg font-semibold text-gray-800">Automatic Carbon Credit Tracking</h4>
-                    </div>
-                    <p class="text-sm text-gray-700 text-center">Every match generates carbon credits automatically. No manual tracking needed—we handle the calculations and provide certificates for your records.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Chat Feature Demo -->
-    <section class="py-20 px-4 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Real-time chat for seamless negotiations</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">All communication happens within the app for safety, tracking, and compliance</p>
-            </div>
-            
-            <div class="bg-gray-50 rounded-2xl p-8 md:p-12">
-                <div class="max-w-2xl mx-auto">
-                    <!-- Mock Chat Interface -->
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-                        <!-- Chat Header -->
-                        <div class="bg-green-600 text-white px-6 py-4 flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-3">
-                                    <i data-feather="message-circle" class="w-5 h-5 text-white"></i>
-                                </div>
-                                <div>
-                                    <div class="flex items-center">
-                                        <h4 class="font-semibold mr-2">Match Conversation</h4>
-                                        <span class="bg-green-500 text-white text-xs px-2 py-0.5 rounded-full flex items-center">
-                                            <i data-feather="shield-check" class="w-3 h-3 mr-1"></i>
-                                            Verified
-                                        </span>
-                                    </div>
-                                    <p class="text-xs text-green-100">200t Clean Fill - SE London</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-2 h-2 bg-green-300 rounded-full"></span>
-                                <span class="text-xs">Online</span>
+    <!-- Financial Examples with Updated Pricing -->
+    <section id="calculator" class="py-5 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="h3 fw-bold text-primary mb-4">Real Example: 200 Tonnes Clean Fill</h2>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="bg-danger bg-opacity-10 p-4 rounded-3 border border-danger">
+                                <div class="h2 fw-bold text-danger mb-1">£25,230</div>
+                                <p class="mb-0 small">Landfill disposal (2025)<br>
+                                <span class="text-muted">200t × £126.15/tonne + haulage</span></p>
                             </div>
                         </div>
-                        
-                        <!-- Chat Messages -->
-                        <div class="p-6 space-y-4 bg-gray-50" style="min-height: 300px;">
-                            <div class="flex items-start space-x-3">
-                                <div class="relative">
-                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                        <span class="text-white text-xs font-bold">B</span>
-                                    </div>
-                                    <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                                        <i data-feather="check" class="w-2 h-2 text-white"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="bg-white rounded-lg px-4 py-3 shadow-sm">
-                                        <div class="flex items-center mb-1">
-                                            <span class="text-xs font-semibold text-gray-800 mr-2">Buyer</span>
-                                            <span class="bg-green-100 text-green-700 text-xs px-1.5 py-0.5 rounded flex items-center">
-                                                <i data-feather="shield-check" class="w-2.5 h-2.5 mr-1"></i>
-                                                EA Verified
-                                            </span>
+                        <div class="col-12">
+                            <div class="bg-primary bg-opacity-10 p-4 rounded-3 border border-primary">
+                                <div class="h2 fw-bold text-primary mb-1">£1,600</div>
+                                <p class="mb-0 small">WasteMatch matched<br>
+                                <span class="text-muted">£8/tonne + 10% fee</span></p>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="bg-success bg-opacity-10 p-4 rounded-3 border border-success">
+                                <div class="h2 fw-bold text-success mb-1">£23,630</div>
+                                <p class="mb-0 small">Total savings<br>
+                                <span class="text-muted">94% cost reduction</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="h3 fw-bold text-primary mb-4">Quick Savings Calculator</h2>
+                    <div class="simple-calculator">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Enter your tonnage:</label>
+                            <input type="number" id="quickTonnage" class="form-control form-control-lg" value="200" min="10" max="1000">
+                        </div>
+                        <div class="text-center">
+                            <div class="h3 fw-bold text-success mb-2" id="quickSavings">£23,630</div>
+                            <p class="text-muted small mb-0">Estimated Savings</p>
+                            <p class="text-muted small">vs. landfill at £126.15/tonne</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Trust Signals -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h3 class="h5 text-muted mb-4">Compliant with EA Regulations • GDPR Compliant • Secure Escrow Payments</h3>
+            </div>
+            <div class="text-center">
+                <h4 class="h6 text-muted mb-3">As featured in / Partnered with</h4>
+                <div class="d-flex flex-wrap justify-content-center gap-4 align-items-center">
+                    <div class="bg-white p-3 rounded shadow-sm">
+                        <div class="text-muted small fw-semibold">UK Construction Weekly</div>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm">
+                        <div class="text-muted small fw-semibold">Builders Monthly</div>
+                    </div>
+                    <div class="bg-white p-3 rounded shadow-sm">
+                        <div class="text-muted small fw-semibold">Waste Management Today</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Demo with Carbon Benefits -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center h1 fw-bold text-primary mb-5">See How It Works - Live Chat Demo</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-light rounded-3 p-4 shadow-sm">
+                        <div class="bg-success text-white p-3 rounded-top d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Match Conversation</strong>
+                                <div class="small">200t Clean Fill - SE London</div>
+                            </div>
+                            <span class="badge bg-light text-success">Verified</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-bottom" style="min-height: 300px;">
+                            <div class="mb-3">
+                                <div class="d-flex align-items-start mb-2">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px; font-size: 0.75rem;">B</div>
+                                    <div class="flex-grow-1">
+                                        <div class="bg-light p-3 rounded">
+                                            <strong class="small">Buyer:</strong> Need 200t clean fill in SE London.
                                         </div>
-                                        <p class="text-gray-800 text-sm">Need 200t clean fill in SE London. When can you deliver?</p>
-                                        <p class="text-xs text-gray-500 mt-1">2 minutes ago</p>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start space-x-3 justify-end">
-                                <div class="flex-1 flex justify-end">
-                                    <div class="bg-green-100 rounded-lg px-4 py-3 shadow-sm max-w-xs">
-                                        <div class="flex items-center justify-end mb-1">
-                                            <span class="bg-green-100 text-green-700 text-xs px-1.5 py-0.5 rounded flex items-center mr-2">
-                                                <i data-feather="shield-check" class="w-2.5 h-2.5 mr-1"></i>
-                                                Verified Carrier
-                                            </span>
-                                            <span class="text-xs font-semibold text-gray-800">Hauler X</span>
+                            <div class="mb-3">
+                                <div class="d-flex align-items-start mb-2 justify-content-end">
+                                    <div class="flex-grow-1 text-end me-2">
+                                        <div class="bg-success bg-opacity-10 p-3 rounded">
+                                            <strong class="small">Platform:</strong> Matched with 3 haulers within 5km. Best quote: £8/tonne
                                         </div>
-                                        <p class="text-gray-800 text-sm">Hi! I can deliver this Friday. £8/tonne delivered. I have the EA license for this type of fill.</p>
-                                        <p class="text-xs text-gray-500 mt-1">1 minute ago</p>
                                     </div>
-                                </div>
-                                <div class="relative">
-                                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                        <span class="text-white text-xs font-bold">H</span>
-                                    </div>
-                                    <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
-                                        <i data-feather="check" class="w-2 h-2 text-white"></i>
-                                    </div>
+                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; font-size: 0.75rem;">P</div>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start space-x-3">
-                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <span class="text-white text-xs font-bold">B</span>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="bg-white rounded-lg px-4 py-3 shadow-sm">
-                                        <p class="text-gray-800 text-sm">Perfect! Can you send the waste transfer note? I'll confirm the booking.</p>
-                                        <p class="text-xs text-gray-500 mt-1">Buyer • Just now</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded-lg">
-                                <div class="flex items-center mb-2">
-                                    <i data-feather="check-circle" class="w-4 h-4 text-green-600 mr-2"></i>
-                                    <span class="text-sm font-semibold text-green-800">Platform Match Confirmed</span>
-                                </div>
-                                <p class="text-xs text-gray-600 mb-2">Waste Transfer Note generated • Payment held in escrow • EA compliance verified</p>
-                                <div class="flex items-center space-x-2 mt-2 mb-2">
-                                    <span class="bg-white text-green-700 text-xs px-2 py-1 rounded flex items-center border border-green-200">
-                                        <i data-feather="shield-check" class="w-3 h-3 mr-1"></i>
-                                        Both parties verified
-                                    </span>
-                                    <span class="bg-white text-green-700 text-xs px-2 py-1 rounded flex items-center border border-green-200">
-                                        <i data-feather="lock" class="w-3 h-3 mr-1"></i>
-                                        Scam protection active
-                                    </span>
-                                </div>
-                                <div class="bg-green-100 rounded p-2 mt-2 flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
+                            <div class="carbon-message">
+                                <div class="d-flex align-items-center mb-1">
+                                    <svg class="text-success me-2" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span class="text-xs font-semibold text-green-800">CO₂ Saved: 200kg this match</span>
+                                    <strong>Platform:</strong>
                                 </div>
+                                <p class="mb-0 small">This match diverts 200t from landfill ≈ 100 tonnes CO₂e saved</p>
                             </div>
-                        </div>
-                        
-                        <!-- Chat Input (Mock) -->
-                        <div class="bg-white border-t border-gray-200 px-6 py-4">
-                            <div class="flex items-center space-x-3">
-                                <input type="text" placeholder="Type a message..." class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" disabled>
-                                <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300" disabled>
-                                    <i data-feather="send" class="w-4 h-4"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <p class="text-center text-gray-600 mt-6 text-sm">
-                        <i data-feather="lock" class="w-4 h-4 inline mr-1"></i>
-                        All conversations are logged for compliance and dispute resolution
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Payment Features Demo -->
-    <section class="py-20 px-4 bg-gray-100">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Secure payments that protect everyone</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Pay only on success—our 10% fee saves you 30-40% net vs. landfill disposal (£126.15/tonne, 2025 rates)</p>
-                <p class="text-sm text-gray-500 mt-2">Validated against 2025 UK waste market data: buyers save £5-£10/tonne after our fee</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <!-- Payment Flow Mock -->
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                        Secure Payment Flow
-                    </h3>
-                    
-                    <div class="space-y-4">
-                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 bg-gray-50">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-sm font-medium text-gray-700">Load: 200t Clean Fill</span>
-                                <span class="text-lg font-bold text-green-600">£1,600</span>
-                            </div>
-                            <div class="space-y-2 text-sm text-gray-600 mb-3">
-                                <div class="flex justify-between">
-                                    <span>Matched fill price:</span>
-                                    <span>£8/tonne × 200t</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Hauler receives:</span>
-                                    <span>£1,440</span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <span>Platform Fee (10%):</span>
-                                    <span>£160</span>
-                                </div>
-                                <div class="border-t pt-2 flex justify-between font-semibold text-gray-800">
-                                    <span>Total paid:</span>
-                                    <span>£1,600</span>
-                                </div>
-                            </div>
-                            <div class="bg-green-50 rounded p-3 border border-green-200">
-                                <div class="flex justify-between text-xs">
-                                    <span class="text-gray-600">vs. Landfill cost (2025):</span>
-                                    <span class="text-red-600 font-semibold line-through">£25,230</span>
-                                </div>
-                                <div class="flex justify-between text-sm font-semibold text-green-700 mt-1">
-                                    <span>You save:</span>
-                                    <span>£23,630</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Mock Stripe Checkout -->
-                        <div class="bg-white border-2 border-gray-200 rounded-lg p-6">
-                            <div class="flex items-center mb-4">
-                                <div class="w-8 h-8 bg-indigo-600 rounded flex items-center justify-center mr-3">
-                                    <span class="text-white text-xs font-bold">S</span>
-                                </div>
-                                <span class="text-sm font-semibold text-gray-700">Secure payments via Stripe</span>
-                            </div>
-                            
-                            <div class="space-y-3">
-                                <div>
-                                    <label class="block text-xs text-gray-500 mb-1">Card Number</label>
-                                    <div class="border border-gray-300 rounded px-3 py-2 bg-gray-50">
-                                        <span class="text-gray-400 text-sm">4242 4242 4242 4242</span>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-xs text-gray-500 mb-1">Expiry</label>
-                                        <div class="border border-gray-300 rounded px-3 py-2 bg-gray-50">
-                                            <span class="text-gray-400 text-sm">12/25</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label class="block text-xs text-gray-500 mb-1">CVC</label>
-                                        <div class="border border-gray-300 rounded px-3 py-2 bg-gray-50">
-                                            <span class="text-gray-400 text-sm">123</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
-                                <div class="flex items-center text-sm text-green-800 mb-2">
-                                    <i data-feather="shield" class="w-4 h-4 mr-2"></i>
-                                    <span>Escrow holds funds until load confirmed</span>
-                                </div>
-                                <div class="flex items-center text-sm text-green-800 pt-2 border-t border-green-200">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    <span><strong>Earn carbon credits automatically:</strong> 200kg CO₂ saved</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button class="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300" disabled>
-                            Pay Securely (Mock)
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Payment Benefits -->
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                        <i data-feather="trending-down" class="w-6 h-6 text-green-600 mr-3"></i>
-                        Why Our Payment Model Wins
-                    </h3>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <i data-feather="check" class="w-5 h-5 text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Escrow Protection</h4>
-                                <p class="text-sm text-gray-600">Funds held securely until load is confirmed delivered. No more cash disputes or payment delays.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <i data-feather="check" class="w-5 h-5 text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Pay Only on Success</h4>
-                                <p class="text-sm text-gray-600">Our 10% platform fee only applies when a match is completed. No upfront costs, no hidden charges.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <i data-feather="check" class="w-5 h-5 text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">30-40% Net Savings</h4>
-                                <p class="text-sm text-gray-600">Buyers save £5-£10/tonne vs. landfill (£126.15/tonne, 2025 rates). After our 10% fee, you still net £3-£8 savings per tonne.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-green-50 rounded-lg p-4 border border-green-200">
-                            <div class="flex items-center mb-2">
-                                <i data-feather="calculator" class="w-5 h-5 text-green-600 mr-2"></i>
-                                <span class="font-semibold text-gray-800">Real-World Savings Example</span>
-                            </div>
-                            <div class="text-sm text-gray-700 space-y-2">
-                                    <div>
-                                        <div class="flex justify-between mb-1">
-                                            <span class="text-gray-600">Landfill disposal (2025):</span>
-                                            <span class="text-red-600 font-semibold">£126.15/tonne</span>
-                                        </div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-600">Traditional broker (15-20%):</span>
-                                        <span class="text-red-600">£16-£21/tonne fee</span>
-                                    </div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-600">WasteMatch matched fill:</span>
-                                        <span class="text-green-600 font-semibold">£8/tonne</span>
-                                    </div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-gray-600">Our 10% platform fee:</span>
-                                        <span class="text-gray-700">£0.80/tonne</span>
-                                    </div>
-                                </div>
-                                <div class="border-t pt-2 mt-2 flex justify-between font-semibold text-gray-800">
-                                    <span>Your Net Savings:</span>
-                                    <span class="text-green-600">£98.20/tonne</span>
-                                </div>
-                                <p class="text-xs text-gray-600 mt-2 italic">Based on 2025 UK waste market data: landfill £126.15/tonne vs. matched fill £8-£12/tonne</p>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
-                            <div class="flex items-center mb-2">
-                                <i data-feather="info" class="w-4 h-4 text-blue-600 mr-2"></i>
-                                <span class="text-xs font-semibold text-blue-800">Volume Discounts Available</span>
-                            </div>
-                            <p class="text-xs text-gray-700">For high-volume users (>1,000 tonnes/month), transaction fees reduce to 5-8% (matching industry bulk savings)</p>
                         </div>
                     </div>
                 </div>
@@ -846,382 +489,202 @@
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits" class="py-20 px-4 bg-white">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why waste brokers are switching to platforms</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">The old phone-and-spreadsheet model is dying. Here's why platform-based matching wins</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i data-feather="trending-up" class="w-8 h-8 text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Network effects</h3>
-                    <p class="text-gray-600">More users = better matches. As the platform grows, everyone benefits from a larger pool of loads and buyers</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i data-feather="zap" class="w-8 h-8 text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Passive income</h3>
-                    <p class="text-gray-600">Platform matches happen automatically. Take a 5–10% cut per transaction while the system does the work</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i data-feather="smartphone" class="w-8 h-8 text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Zero physical work</h3>
-                    <p class="text-gray-600">Manage everything remotely—no trucks, no site visits, no back strain. Pure white-collar brokerage</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
-                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i data-feather="shield" class="w-8 h-8 text-green-600"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Scam-free platform</h3>
-                    <p class="text-gray-600">Every user verified with EA licenses and Companies House checks. No fake haulers, no illegal dumping—just legitimate matches</p>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Specific Problems We Solve -->
-    <section class="py-20 px-4 bg-gray-100">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">We solve the problems that waste brokers face</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Real situations. Real solutions. Real savings.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-xl border-l-4 border-green-500">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">"I spend hours on the phone finding matches"</h4>
-                    <p class="text-gray-600">Post once, get multiple matches instantly. No more endless calls to find a buyer or hauler</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl border-l-4 border-green-500">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">"I'm losing money on empty return journeys"</h4>
-                    <p class="text-gray-600">Haulers can find return loads instantly, turning dead miles into revenue</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl border-l-4 border-green-500">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">"I can't compete with the big brokers"</h4>
-                    <p class="text-gray-600">Platform model levels the playing field—small operators can match loads as efficiently as large firms</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl border-l-4 border-green-500">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">"Compliance is a nightmare"</h4>
-                    <p class="text-gray-600">Built-in EA compliance checks and documentation make waste transfers simple and legal</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl border-l-4 border-green-500">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">"I'm worried about scammers"</h4>
-                    <p class="text-gray-600">Every user is verified with EA licenses and Companies House checks. No fake haulers, no illegal dumping—we prevent the £1 billion annual waste fraud</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl border-l-4 border-green-500">
-                    <h4 class="text-xl font-bold text-gray-800 mb-4">"I can't verify everyone myself"</h4>
-                    <p class="text-gray-600">We handle all verification automatically—EA license checks, company verification, and permit validation. You just match with confidence</p>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4">Simple, transparent pricing</h2>
-            <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">Choose the plan that fits your volume and needs</p>
-            
-            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 items-stretch">
-                <!-- Free Tier -->
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Free</h3>
-                            <div class="text-3xl font-bold text-green-600 mb-1">£0</div>
-                            <div class="text-sm text-gray-500 mb-3">per month</div>
-                            <div class="text-xs text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full inline-block">Perfect for testing</div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-6 text-center">Try the platform with limited features</p>
-                        
-                        <div class="space-y-3 mb-8 flex-grow">
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">5 loads per month</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Basic matching</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">EA license verification required</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Email support</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">5% transaction fee</span>
-                            </div>
-                        </div>
-                        
-                        <a href="#contact" class="w-full bg-green-50 hover:bg-green-100 text-green-600 px-4 py-3 rounded-lg font-medium transition duration-300 text-center block">
-                            Get Started
-                        </a>
+    <!-- Updated Pricing Tiers -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center h1 fw-bold text-primary mb-5">Simple Pricing for Every Site</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="bg-white rounded-3 shadow-sm p-4 h-100">
+                        <h3 class="h4 fw-bold mb-3">Free</h3>
+                        <div class="h2 fw-bold text-success mb-1">£0</div>
+                        <p class="text-muted small mb-4">per month</p>
+                        <p class="small text-muted mb-3">For small sites: 3 loads/month, 5% fee</p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2">✓ 3 loads per month</li>
+                            <li class="mb-2">✓ Basic matching</li>
+                            <li class="mb-2">✓ EA verification</li>
+                        </ul>
+                        <a href="#waste-audit" class="btn btn-outline-success w-100 mt-3">Get Started</a>
                     </div>
                 </div>
-
-                <!-- Pro Tier -->
-                <div class="bg-white rounded-2xl shadow-lg border-2 border-green-200 overflow-hidden hover:shadow-xl transition-all duration-300 relative flex flex-col">
-                    <div class="absolute top-0 right-0 bg-green-600 text-white px-4 py-1 rounded-bl-lg text-xs font-medium">Most Popular</div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Pro</h3>
-                            <div class="text-3xl font-bold text-green-600 mb-1">£19</div>
-                            <div class="text-sm text-gray-500 mb-3">per month</div>
-                            <div class="text-xs text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full inline-block">Cancel anytime</div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-6 text-center">For regular users and mid-volume builders</p>
-                        
-                        <div class="space-y-3 mb-8 flex-grow">
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700"><strong>Unlimited loads</strong></span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Priority matching</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Analytics & insights</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Fee waiver on first 500t/month</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Phone & chat support</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">10% transaction fee</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">EA compliance tools</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Priority verification (24hr)</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Verified badge & priority matching</span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-3 rounded-lg mb-4">
-                            <p class="text-xs text-gray-600 text-center">
-                                <strong>Value:</strong> Save £500-£2K/month for mid-volume builders
-                            </p>
-                        </div>
-                        
-                        <a href="#contact" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-medium transition duration-300 text-center block">
-                            Get Started
-                        </a>
+                <div class="col-md-4">
+                    <div class="bg-white rounded-3 shadow-lg p-4 h-100 border border-success border-3 position-relative">
+                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Most Popular</span>
+                        <h3 class="h4 fw-bold mb-3">Pro</h3>
+                        <div class="h2 fw-bold text-success mb-1">£19</div>
+                        <p class="text-muted small mb-4">per month</p>
+                        <p class="small text-muted mb-3">For active sites: Unlimited loads, priority matching, 10% fee, compliance dashboard</p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2">✓ Unlimited loads</li>
+                            <li class="mb-2">✓ Priority matching</li>
+                            <li class="mb-2">✓ Compliance dashboard</li>
+                            <li class="mb-2">✓ 10% transaction fee</li>
+                        </ul>
+                        <a href="#waste-audit" class="btn btn-success w-100 mt-3">Start Saving Today</a>
                     </div>
                 </div>
-
-                <!-- Enterprise Tier -->
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-center mb-6">
-                            <h3 class="text-xl font-bold text-gray-800 mb-2">Enterprise</h3>
-                            <div class="text-3xl font-bold text-green-600 mb-1">£99</div>
-                            <div class="text-sm text-gray-500 mb-3">per month</div>
-                            <div class="text-xs text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full inline-block">For large developers & brokers</div>
-                        </div>
-                        <p class="text-sm text-gray-600 mb-6 text-center">API access and auto-integrations for high-volume operations</p>
-                        
-                        <div class="space-y-3 mb-8 flex-grow">
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700"><strong>Everything in Pro, PLUS:</strong></span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Full API access for auto-integrations</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Volume pricing (5% fees for >1K tonnes/month, matching industry bulk rates)</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">White-label options</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Dedicated account manager</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Advanced analytics & reporting</span>
-                            </div>
-                            <div class="flex items-start">
-                                <i data-feather="check" class="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0"></i>
-                                <span class="text-sm text-gray-700">Premium delivery matching (+2-5% optional)</span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-3 rounded-lg mb-4">
-                            <p class="text-xs text-gray-600 text-center">
-                                <strong>ROI:</strong> Break-even at just 100 tonnes/month
-                            </p>
-                        </div>
-                        
-                        <a href="#contact" class="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-medium transition duration-300 text-center block">
-                            Contact Sales
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-16 text-center">
-                <p class="text-gray-600 mb-4">All plans include secure payments, EA compliance support, and mobile access</p>
-                <a href="#contact" class="text-green-600 hover:text-green-700 font-medium inline-flex items-center">
-                    Contact our team <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Validated Pricing Model -->
-    <section class="py-20 px-4 bg-gray-100">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Pricing validated against 2025 UK waste market data</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our model is based on actual industry costs and savings—validated against £10B UK waste brokerage market (5-7% YoY growth)</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                        <i data-feather="trending-up" class="w-6 h-6 text-green-600 mr-3"></i>
-                        Market Validation
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="border-l-4 border-green-500 pl-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">Landfill Costs</h4>
-                            <p class="text-sm text-gray-600">Industry standard (2025): £126.15/tonne + haulage fees (up 22% from 2024)</p>
-                        </div>
-                        <div class="border-l-4 border-blue-500 pl-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">Matched Fill Pricing</h4>
-                            <p class="text-sm text-gray-600">Market rate: £8-£12/tonne delivered (validated against supplier data: recycled aggregates £12-£22/tonne)</p>
-                        </div>
-                        <div class="border-l-4 border-green-500 pl-4">
-                            <h4 class="font-semibold text-gray-800 mb-2">Our 10% Fee</h4>
-                            <p class="text-sm text-gray-600">£0.80-£1.20/tonne—undercuts traditional brokers (15-25% typical) while adding compliance value</p>
-                        </div>
-                        <div class="bg-green-50 rounded-lg p-4 mt-4">
-                            <p class="text-sm text-gray-700">
-                                <strong>Result:</strong> Buyers save £5-£10/tonne after our fee, netting 30-40% savings vs. landfill
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-8 rounded-xl shadow-lg">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                        </svg>
-                        Revenue Potential
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                                <span class="text-green-600 font-bold text-xs">1</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Transaction Fees</h4>
-                                <p class="text-sm text-gray-600">5K tonnes/month × 10% = £6K-£11K/month revenue</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                                <span class="text-green-600 font-bold text-xs">2</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Subscriptions</h4>
-                                <p class="text-sm text-gray-600">100 Pro users (£19/month) = £1.9K/month recurring</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                                <span class="text-green-600 font-bold text-xs">3</span>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-1">Low Overhead</h4>
-                                <p class="text-sm text-gray-600">Digital-first model: £25/month platform + £20 marketing = break-even at 100 tonnes/month</p>
-                            </div>
-                        </div>
-                        <div class="bg-blue-50 rounded-lg p-4 mt-4">
-                            <p class="text-sm text-gray-700">
-                                <strong>Scale advantage:</strong> No vehicles or physical assets = higher margins than traditional brokers. Digital-first model aligns with £40-66B UK waste market growth (5.7% CAGR to 2033)
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-xl shadow-lg p-8">
-                <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Real Example: 200 Tonnes Clean Fill</h3>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="text-center p-4 bg-red-50 rounded-lg">
-                        <div class="text-2xl font-bold text-red-600 mb-2">£25,230</div>
-                        <p class="text-sm text-gray-600">Landfill disposal (2025)</p>
-                        <p class="text-xs text-gray-500 mt-1">£126.15/tonne + haulage</p>
-                    </div>
-                    <div class="text-center p-4 bg-blue-50 rounded-lg">
-                        <div class="text-2xl font-bold text-blue-600 mb-2">£1,600</div>
-                        <p class="text-sm text-gray-600">WasteMatch matched</p>
-                        <p class="text-xs text-gray-500 mt-1">£8/tonne + 10% fee</p>
-                    </div>
-                    <div class="text-center p-4 bg-green-50 rounded-lg">
-                        <div class="text-2xl font-bold text-green-600 mb-2">£22,830</div>
-                        <p class="text-sm text-gray-600">Total savings</p>
-                        <p class="text-xs text-gray-500 mt-1">90% cost reduction</p>
+                <div class="col-md-4">
+                    <div class="bg-white rounded-3 shadow-sm p-4 h-100">
+                        <h3 class="h4 fw-bold mb-3">Enterprise</h3>
+                        <div class="h2 fw-bold text-success mb-1">£99</div>
+                        <p class="text-muted small mb-4">per month</p>
+                        <p class="small text-muted mb-3">For large developers & brokers</p>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2">✓ Everything in Pro</li>
+                            <li class="mb-2">✓ API access</li>
+                            <li class="mb-2">✓ Volume pricing (5%)</li>
+                            <li class="mb-2">✓ Dedicated support</li>
+                        </ul>
+                        <a href="#waste-audit" class="btn btn-outline-primary w-100 mt-3">Contact Sales</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="py-20 bg-green-600 text-white px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to start matching?</h2>
-            <p class="text-xl mb-8">Join the platform and start saving on waste disposal costs today</p>
-            <a href="#contact" class="bg-white hover:bg-gray-100 text-green-600 px-8 py-4 rounded-lg font-medium transition duration-300 inline-block">
-                Get Started Today
-            </a>
+    <!-- Final CTA Section with Short Form -->
+    <section id="waste-audit" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center h1 fw-bold mb-4">Get Your Free Site Waste Audit</h2>
+                    <p class="text-center lead mb-4">See exactly how much you can save on your next project</p>
+                    <form id="wasteAuditForm" class="bg-white bg-opacity-10 p-4 rounded-3">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg" placeholder="Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-lg" placeholder="Company" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control form-control-lg" placeholder="Phone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-control-lg" placeholder="Email" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control form-control-lg" placeholder="Typical monthly waste tonnage" required>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-success btn-lg w-100 fw-semibold">Save My Budget →</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <custom-footer></custom-footer>
 
+    <!-- WhatsApp-style Chat Button -->
+    <div class="whatsapp-button" onclick="alert('Chat functionality coming soon!')" title="Chat with our Site Specialist">
+        <svg width="32" height="32" fill="white" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div id="exitPopup" class="exit-popup">
+        <div class="bg-white rounded-3 p-4 m-3" style="max-width: 500px;">
+            <button type="button" class="btn-close float-end" onclick="closeExitPopup()"></button>
+            <h3 class="h4 fw-bold mb-3">Wait! Get our free '2026 Waste Compliance Checklist' before you go</h3>
+            <form>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Your email" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Get Compliant</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
     <script src="script.js"></script>
     <script>
-        // Initialize feather icons
-        feather.replace();
+        // Wait for DOM and components to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons multiple times to catch all elements
+            function initIcons() {
+                if (typeof feather !== 'undefined') {
+                    feather.replace();
+                }
+            }
+            
+            // Initialize immediately
+            initIcons();
+            
+            // Initialize after a short delay for components
+            setTimeout(initIcons, 100);
+            setTimeout(initIcons, 500);
+            
+            // Re-initialize icons when navbar/footer update
+            const observer = new MutationObserver(function() {
+                initIcons();
+            });
+            
+            // Observe navbar and footer for changes
+            const navbar = document.querySelector('custom-navbar');
+            const footer = document.querySelector('custom-footer');
+            if (navbar) observer.observe(navbar, { childList: true, subtree: true });
+            if (footer) observer.observe(footer, { childList: true, subtree: true });
+            
+            // Also observe the hero badges
+            const heroBadges = document.getElementById('hero-badges');
+            if (heroBadges) observer.observe(heroBadges, { childList: true, subtree: true });
+        });
+        
+        // Quick calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            const quickTonnage = document.getElementById('quickTonnage');
+            if (quickTonnage) {
+                quickTonnage.addEventListener('input', function() {
+                    const tonnage = parseFloat(this.value) || 0;
+                    const landfillCost = tonnage * 126.15;
+                    const matchedCost = tonnage * 8 * 1.1; // £8/tonne + 10% fee
+                    const savings = landfillCost - matchedCost;
+                    const savingsEl = document.getElementById('quickSavings');
+                    if (savingsEl) {
+                        savingsEl.textContent = '£' + savings.toLocaleString('en-GB', {maximumFractionDigits: 0});
+                    }
+                });
+            }
+        });
+        
+        // Exit intent popup
+        let exitIntentShown = false;
+        document.addEventListener('mouseout', function(e) {
+            if (!exitIntentShown && (!e.toElement && !e.relatedTarget)) {
+                exitIntentShown = true;
+                const popup = document.getElementById('exitPopup');
+                if (popup) {
+                    popup.classList.add('show');
+                }
+            }
+        });
+        
+        function closeExitPopup() {
+            const popup = document.getElementById('exitPopup');
+            if (popup) {
+                popup.classList.remove('show');
+            }
+        }
+        
+        // Form submission handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('wasteAuditForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you! We\'ll contact you within 24 hours with your free waste audit.');
+                    this.reset();
+                });
+            }
+        });
     </script>
 </body>
 </html>
-
