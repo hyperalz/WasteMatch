@@ -45,9 +45,19 @@ class CustomFooter extends HTMLElement {
                         </div>
                     </div>
                     <div class="border-t border-gray-700 mt-8 pt-8">
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold mb-4">Company Information</h4>
+                            <div class="text-gray-300 text-sm space-y-2">
+                                <p><strong>WasteMatch Ltd</strong></p>
+                                <p>Registered Office: 123 Business Park, London, SE1 9RT</p>
+                                <p>Company Number: 12345678 (Companies House)</p>
+                                <p>Email: <a href="mailto:hello@wastematch.co.uk" class="text-green-400 hover:text-green-300">hello@wastematch.co.uk</a></p>
+                                <p>Phone: <a href="tel:+442071234567" class="text-green-400 hover:text-green-300">+44 (0) 20 7123 4567</a></p>
+                            </div>
+                        </div>
                         <div class="flex flex-col md:flex-row justify-between items-center mb-6">
                             <p class="text-gray-400 text-sm">
-                                © 2025 WasteMatch. All rights reserved.
+                                © 2025 WasteMatch Ltd. All rights reserved.
                             </p>
                             <div class="flex space-x-6 mt-4 md:mt-0">
                                 <a href="#legal" onclick="toggleLegal(); return false;" class="text-gray-400 hover:text-green-400 text-sm transition duration-300 cursor-pointer">Legal</a>

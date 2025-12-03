@@ -3,105 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service | WasteMatch</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Terms of Service - WasteMatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <div class="max-w-4xl mx-auto px-4 py-12">
-        <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6">Terms of Service</h1>
-            <p class="text-gray-600 mb-8">Last updated: January 2025</p>
-            
-            <div class="prose max-w-none space-y-6 text-gray-700">
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">1. Acceptance of Terms</h2>
-                    <p>By using WasteMatch, you agree to these Terms of Service. If you disagree, do not use the platform.</p>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">2. Platform Description</h2>
-                    <p>WasteMatch is a matching platform connecting waste generators, haulers, and buyers. We facilitate introductions but are not a party to transactions between users.</p>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">3. User Obligations</h2>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>Provide accurate information about waste loads and capabilities</li>
-                        <li>Hold appropriate EA waste carrier licenses where required</li>
-                        <li>Comply with all UK waste regulations and EA requirements</li>
-                        <li>Complete transactions through the platform (no off-platform deals)</li>
-                        <li>Maintain account security and notify us of unauthorized access</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">4. Prohibited Conduct</h2>
-                    <p><strong>Off-Platform Deals:</strong> Arranging transactions outside WasteMatch after matching is strictly prohibited. Violations may result in account suspension or permanent ban.</p>
-                    <p>You may not:</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>Circumvent platform fees by arranging off-platform transactions</li>
-                        <li>Post false or misleading information</li>
-                        <li>Handle hazardous waste without proper permits</li>
-                        <li>Use the platform for illegal activities</li>
-                        <li>Interfere with platform operations or security</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">5. Fees and Payments</h2>
-                    <p>Platform fees (typically 5-10% of transaction value) apply only on successful matches. Payment processing is handled by Stripe. All fees are clearly displayed before transaction completion.</p>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">6. EA Compliance</h2>
-                    <p>Users are solely responsible for EA compliance. WasteMatch provides compliance tools but does not guarantee regulatory compliance. Users must ensure:</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>Appropriate waste carrier licenses are held</li>
-                        <li>Waste transfer notes are completed correctly</li>
-                        <li>Waste is handled according to EA regulations</li>
-                        <li>All legal requirements are met</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">7. Disputes</h2>
-                    <p>Disputes between users should be resolved directly. WasteMatch may assist but is not liable for user disputes, transaction failures, or compliance issues.</p>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">8. Limitation of Liability</h2>
-                    <p>WasteMatch acts as a matching platform only. We are not liable for:</p>
-                    <ul class="list-disc pl-6 space-y-2">
-                        <li>Disputes between users</li>
-                        <li>Injuries or accidents during waste handling</li>
-                        <li>Non-compliance with EA regulations</li>
-                        <li>Environmental damage</li>
-                        <li>Financial losses from transactions</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">9. Beta Platform Notice</h2>
-                    <p>WasteMatch is currently in beta. We make no guarantees on match availability, response times, or platform uptime. The service is provided "as is" for testing purposes.</p>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">10. Termination</h2>
-                    <p>We may suspend or terminate accounts for violations of these terms, including off-platform deal arrangements.</p>
-                </section>
-                
-                <section>
-                    <h2 class="text-xl font-semibold text-gray-800 mb-3">11. Contact</h2>
-                    <p>For questions: legal@wastematch.co.uk</p>
-                </section>
-            </div>
-            
-            <div class="mt-8 pt-6 border-t">
-                <a href="index.html" class="text-green-600 hover:text-green-700 font-medium">← Back to Home</a>
-            </div>
-        </div>
+<body>
+    <div class="container py-5">
+        <h1>Terms of Service</h1>
+        <p class="text-muted">Last updated: January 2025</p>
+        
+        <h2>1. Acceptance of Terms</h2>
+        <p>By using WasteMatch, you agree to these Terms of Service. If you disagree, please do not use our platform.</p>
+        
+        <h2>2. Platform Description</h2>
+        <p>WasteMatch is a matching platform connecting waste generators with verified buyers and haulers. We facilitate connections but are not a party to transactions.</p>
+        
+        <h2>3. User Obligations</h2>
+        <ul>
+            <li>You must have valid EA waste carrier licenses where required</li>
+            <li>All information provided must be accurate and current</li>
+            <li>You must comply with all UK waste regulations</li>
+            <li>Off-platform deals are prohibited after matching on WasteMatch</li>
+        </ul>
+        
+        <h2>4. Prohibited Activities</h2>
+        <ul>
+            <li>Arranging transactions outside the platform after matching</li>
+            <li>Providing false information or documents</li>
+            <li>Violating EA regulations or environmental laws</li>
+            <li>Using the platform for illegal waste disposal</li>
+        </ul>
+        
+        <h2>5. Fees and Payments</h2>
+        <p>WasteMatch charges transaction fees as outlined in our pricing. Fees are deducted from successful matches. Subscription fees are billed monthly.</p>
+        
+        <h2>6. Limitation of Liability</h2>
+        <p>WasteMatch acts as a matching platform only. We are not liable for:</p>
+        <ul>
+            <li>Disputes between users</li>
+            <li>Injuries or accidents during waste handling</li>
+            <li>Non-compliance with regulations</li>
+            <li>Environmental damage</li>
+        </ul>
+        
+        <h2>7. Account Termination</h2>
+        <p>We reserve the right to suspend or terminate accounts that violate these terms, including accounts engaging in off-platform deals.</p>
+        
+        <h2>8. Contact Us</h2>
+        <p>For questions about these terms, contact: <a href="mailto:legal@wastematch.co.uk">legal@wastematch.co.uk</a></p>
+        
+        <p class="mt-5"><a href="index.html" class="btn btn-primary">← Back to Home</a></p>
     </div>
 </body>
 </html>
-
