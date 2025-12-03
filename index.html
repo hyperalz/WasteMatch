@@ -91,31 +91,69 @@
     </script>
     
     <style>
-        /* Mobile-first responsive styles */
+        /* Wonderflow Wanda-inspired design system */
+        :root {
+            --primary-blue: #1e40af;
+            --success-green: #22c55e;
+            --danger-red: #dc2626;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -1px rgba(15, 23, 42, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 10px 10px -5px rgba(15, 23, 42, 0.04);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Hero Section - HubSpot-inspired clean & centered */
         .hero-bg {
-            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 75vh;
             display: flex;
             align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: var(--spacing-2xl) 0;
         }
         .hero-bg::before {
             content: '';
             position: absolute;
-            top: -10%;
-            left: -10%;
-            right: -10%;
-            bottom: -10%;
-            width: 120%;
-            height: 120%;
-            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            top: -20%;
+            left: -20%;
+            right: -20%;
+            bottom: -20%;
+            width: 140%;
+            height: 140%;
+            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
-            filter: blur(12px);
+            filter: blur(20px);
             z-index: 0;
         }
         .hero-bg::after {
@@ -125,47 +163,88 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(15, 23, 42, 0.7);
             z-index: 1;
         }
         .hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 2rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
         }
         .hero-content h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            line-height: 1.1;
+            font-weight: 700;
+            color: white;
+            margin-bottom: var(--spacing-md);
+            letter-spacing: -0.02em;
         }
-        .hero-content p {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            max-width: 800px;
-            margin: 0 auto;
+        .hero-content .subheadline {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            margin-top: var(--spacing-xl);
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: rgba(255, 255, 255, 0.9);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .urgency-badge {
-            display: inline-block;
-            background: #f59e0b;
-            color: white;
-            padding: 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background: rgba(34, 197, 94, 0.15);
+            backdrop-filter: blur(10px);
+            color: var(--success-green);
+            padding: var(--spacing-xs) var(--spacing-md);
             border-radius: 50px;
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            margin-bottom: var(--spacing-md);
+            border: 1px solid rgba(34, 197, 94, 0.25);
         }
         .testimonial-box {
             background: white;
             border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            margin-top: -3rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-xl);
+            margin-top: -4rem;
             position: relative;
             z-index: 10;
+            border: 1px solid var(--border-color);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .whatsapp-button {
             position: fixed;
@@ -228,778 +307,1139 @@
             position: relative;
             z-index: 2;
         }
+        /* Money flow visual - Anrok-style clean cards */
+        .money-flow-visual {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+        .flow-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 3rem;
+            align-items: stretch;
+        }
+        .flow-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .flow-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+        .flow-card.old-way {
+            border-top: 3px solid var(--danger-red);
+        }
+        .flow-card.new-way {
+            border-top: 3px solid var(--success-green);
+        }
+        .flow-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .flow-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+        .flow-header.old-way h3 {
+            color: var(--danger-red);
+        }
+        .flow-header.new-way h3 {
+            color: var(--success-green);
+        }
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+        .flow-step-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+        .flow-step.old .flow-step-icon {
+            background: #fee2e2;
+            color: var(--danger-red);
+        }
+        .flow-step.new .flow-step-icon {
+            background: #dcfce7;
+            color: var(--success-green);
+        }
+        .flow-step-text {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+        .flow-result {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            font-size: 1.75rem;
+            letter-spacing: -0.02em;
+        }
+        .flow-result.bad {
+            background: #fef2f2;
+            color: var(--danger-red);
+            border: 2px solid #fee2e2;
+        }
+        .flow-result.good {
+            background: #f0fdf4;
+            color: var(--success-green);
+            border: 2px solid #dcfce7;
+        }
+        .vs-divider {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+        }
+        /* Mindset shift section - Anrok-style */
+        .mindset-shift {
+            padding: 6rem 0;
+            background: var(--bg-white);
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+            align-items: stretch;
+        }
+        .mindset-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        .mindset-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+        .mindset-card.old-way {
+            border-top: 3px solid var(--danger-red);
+        }
+        .mindset-card.new-way {
+            border-top: 3px solid var(--success-green);
+        }
+        .mindset-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .mindset-badge {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .mindset-badge.old {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        .mindset-badge.new {
+            background: #dcfce7;
+            color: #22c55e;
+        }
+        .mindset-card h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .mindset-icon {
+            text-align: center;
+            font-size: 4rem;
+            margin: 1.5rem 0;
+        }
+        .mindset-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        .mindset-list li {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+        }
+        .mindset-list.old-way li {
+            background: #fef2f2;
+            border-left: 3px solid #dc2626;
+        }
+        .mindset-list.new-way li {
+            background: #f0fdf4;
+            border-left: 3px solid #22c55e;
+        }
+        .mindset-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-top: 0.5rem;
+            flex-shrink: 0;
+        }
+        .mindset-list.old-way li::before {
+            background: #dc2626;
+        }
+        .mindset-list.new-way li::before {
+            background: #22c55e;
+        }
+        .mindset-example {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        .mindset-example.old-way {
+            background: #fee2e2;
+        }
+        .mindset-example.new-way {
+            background: #dcfce7;
+        }
+        .mindset-example strong {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .mindset-example .amount {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .mindset-example.old-way .amount {
+            color: #dc2626;
+        }
+        .mindset-example.new-way .amount {
+            color: #22c55e;
+        }
+        .arrow-transition {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #1e40af;
+            font-weight: 700;
+        }
+        .net-difference {
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .difference-box {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success-green) 0%, #16a34a 100%);
+            color: white;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            transform: scale(1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            text-align: center;
+        }
+        .difference-box:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .difference-box .label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-xs);
+        }
+        .difference-box .amount {
+            display: block;
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: var(--spacing-xs);
+        }
+        .difference-box .sub {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+        .difference-box .label {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.95;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .difference-box .amount {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        .difference-box .sub {
+            display: block;
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+        /* Buyer explanation section - Anrok-style */
+        .buyer-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        .buyer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .buyer-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .buyer-action {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        .economics {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+        }
+        .economics .line {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .economics .line:last-child {
+            border-bottom: none;
+        }
+        .money-in {
+            color: #22c55e;
+            font-weight: bold;
+        }
+        .money-out {
+            color: #6b7280;
+        }
+        .profit, .saving {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #22c55e;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        .profit .highlight, .saving .highlight {
+            color: #22c55e;
+        }
+        .key-insight-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary-blue);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            margin-top: 3rem;
+            box-shadow: var(--shadow-sm);
+        }
+        /* Real math calculator - Anrok-style */
+        .real-math {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #3b82f6 100%);
+            color: white;
+        }
+        .real-math h2 {
+            color: white;
+            margin-bottom: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .calculator {
+            background: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            color: var(--text-primary);
+            box-shadow: var(--shadow-xl);
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid var(--border-color);
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .input-group select, .input-group input[type="range"] {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            font-size: 0.9375rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .input-group select {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+        }
+        .input-group select option {
+            padding: 0.5rem;
+            white-space: normal;
+        }
+        .input-group select:focus, .input-group input[type="range"]:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+        .value-display {
+            display: block;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: bold;
+            color: #1e40af;
+        }
+        .results {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .result-row:last-child {
+            border-bottom: none;
+        }
+        .result-row.total {
+            border-top: 2px solid var(--success-green);
+            margin-top: 1rem;
+            padding-top: 1.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .result-row .cost {
+            color: var(--danger-red);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        .result-row .earnings {
+            color: var(--success-green);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        .result-row .difference {
+            color: var(--success-green);
+            font-weight: 700;
+            font-size: 1.75rem;
+            letter-spacing: -0.02em;
+        }
+        /* Section spacing - Anrok style */
+        section {
+            padding: 5rem 0;
+        }
+        section.bg-light {
+            background: var(--bg-light);
+        }
+        section.bg-white {
+            background: var(--bg-white);
+        }
+        
+        /* Typography improvements */
+        h1, h2, h3, h4, h5, h6 {
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+        
+        /* Button improvements */
+        .btn {
+            border-radius: 0.5rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.2s;
+        }
+        .btn-success {
+            background: var(--success-green);
+            border: none;
+        }
+        .btn-success:hover {
+            background: #16a34a;
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Card improvements */
+        .card, .bg-white {
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        /* Visual comparison section - HubSpot-inspired */
+        .visual-comparison {
+            padding: var(--spacing-2xl) 0;
+            background: var(--bg-white);
+        }
+        .visual-comparison .container {
+            max-width: 1200px;
+        }
+        .comparison-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .comparison-visual-card {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .comparison-visual-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .comparison-visual-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .comparison-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            padding: var(--spacing-md);
+            color: white;
+        }
+        .comparison-overlay h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        .comparison-overlay .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .comparison-overlay.negative .amount {
+            color: #fca5a5;
+        }
+        .comparison-overlay.positive .amount {
+            color: #86efac;
+        }
+        .comparison-overlay p {
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            opacity: 0.9;
+        }
+        
+        /* Simple process section - HubSpot-inspired */
+        .process-section {
+            padding: var(--spacing-2xl) 0;
+            background: var(--bg-light);
+        }
+        .process-section .container {
+            max-width: 1200px;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .process-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .process-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .process-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-md);
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .process-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+        .process-card h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        .process-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        /* Image-driven material cards */
+        .material-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        /* Section alignment improvements - HubSpot-inspired */
+        section {
+            padding: var(--spacing-2xl) 0;
+        }
+        section .container {
+            max-width: 1200px;
+        }
+        section h2 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        section .lead {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: var(--spacing-md) auto var(--spacing-lg);
+            text-align: center;
+        }
+        
+        /* Trust section - HubSpot-inspired */
+        .trust-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-white);
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .trust-card {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .trust-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        .trust-card svg {
+            width: 40px;
+            height: 40px;
+            margin-bottom: var(--spacing-sm);
+        }
+        .trust-card h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        .trust-card p {
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* Pricing section - HubSpot-inspired */
+        .pricing-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-light);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            max-width: 800px;
+            margin: var(--spacing-lg) auto 0;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .pricing-card.featured {
+            border: 2px solid var(--success-green);
+            box-shadow: var(--shadow-md);
+        }
+        .pricing-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        .pricing-card .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--success-green);
+            margin-bottom: var(--spacing-xs);
+        }
+        .pricing-card .price-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: var(--spacing-md) 0;
+            text-align: left;
+        }
+        .pricing-card ul li {
+            font-size: 0.875rem;
+            padding: var(--spacing-xs) 0;
+            color: var(--text-secondary);
+        }
+        .material-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .material-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+        .material-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .material-card-content {
+            padding: var(--spacing-lg);
+        }
+        .material-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+        }
+        .material-price {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--success-green);
+            margin: var(--spacing-sm) 0;
+        }
+        .material-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-visual {
+                order: -1;
+            }
+            section {
+                padding: var(--spacing-xl) 0;
+            }
+            .comparison-visual {
+                grid-template-columns: 1fr;
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            .material-grid {
+                grid-template-columns: 1fr;
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            .flow-comparison {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .vs-divider {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .arrow-transition {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+            .money-flow-visual {
+                padding: 0 1rem;
+            }
+            .flow-card {
+                padding: 2rem;
+            }
+            .mindset-card {
+                padding: 2rem;
+            }
+            .difference-box {
+                padding: 2rem 2.5rem;
+            }
+            .difference-box .amount {
+                font-size: 2rem;
+            }
+            .calculator {
+                padding: 2rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-light">
     <custom-navbar></custom-navbar>
     
-    <!-- Hero Section -->
+    <!-- Hero Section - HubSpot-inspired clean & centered -->
     <div class="hero-bg">
-        <div class="hero-content container">
-            <div class="urgency-badge">2026 Digital Tracking Mandate ready ✓</div>
-            <h1 class="text-white fw-bold mb-4">
-                Turn your construction waste into cash<br>Earn £5-£15/tonne instead of paying £126.15 to landfill
-            </h1>
-            <p class="text-white mb-5 lead">
-                The UK's first waste matching platform - connect directly with local buyers, handle EA paperwork automatically, and get paid for your waste
-            </p>
-            
-            <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-4">
-                <a href="#waste-audit" class="btn btn-success btn-lg px-5 py-3 fw-semibold" style="background: #22c55e; border: none;">
-                    Get your free site waste audit →
+        <div class="hero-content">
+            <div class="urgency-badge">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M5 13l4 4L19 7"></path>
+                </svg>
+                2026 Digital Tracking Ready
+            </div>
+            <h1>Turn your construction waste into cash</h1>
+            <p class="subheadline">Stop paying £126/tonne to landfill. Get paid £5-£15/tonne by verified buyers. We handle all compliance automatically.</p>
+            <div class="hero-cta">
+                <a href="#waste-audit" class="btn btn-success btn-lg px-5 py-3 fw-semibold" style="background: #22c55e; border: none; border-radius: 0.5rem;">
+                    Get your free site waste audit
                 </a>
-                <a href="#calculator" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">
-                    Calculate your exact savings
+                <a href="#real-math" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold" style="border-radius: 0.5rem;">
+                    Calculate your savings
                 </a>
             </div>
-            
-            <div class="d-flex flex-wrap justify-content-center gap-3 text-white small" id="hero-badges">
-                <span class="badge px-3 py-2 rounded-pill d-flex align-items-center text-white" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);">
-                    <svg class="me-1" width="14" height="14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0;">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        <path d="M9 12l2 2 4-4"></path>
-                    </svg>
-                    <span>EA Licensed</span>
+            <div class="hero-badges">
+                <span class="hero-badge">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+                    EA Licensed
                 </span>
-                <span class="badge px-3 py-2 rounded-pill d-flex align-items-center text-white" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);">
-                    <svg class="me-1" width="14" height="14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0;">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                    <span>GDPR Compliant</span>
+                <span class="hero-badge">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    GDPR Compliant
                 </span>
-                <span class="badge px-3 py-2 rounded-pill d-flex align-items-center text-white" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px);">
-                    <svg class="me-1" width="14" height="14" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" style="flex-shrink: 0;">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                    <span>Insured</span>
+                <span class="hero-badge">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Insured
                 </span>
             </div>
         </div>
     </div>
 
-    <!-- Site Manager Testimonial - Above the Fold -->
-    <section class="py-5 bg-light">
+    <!-- Visual Comparison - Image-driven -->
+    <section class="visual-comparison">
         <div class="container">
-            <div class="testimonial-box">
-                <div class="row align-items-center">
-                    <div class="col-md-2 text-center mb-3 mb-md-0">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" 
-                             alt="Site Manager" 
-                             class="rounded-circle" 
-                             style="width: 80px; height: 80px; object-fit: cover; border: 3px solid #22c55e;">
-                    </div>
-                    <div class="col-md-10">
-                        <div class="d-flex mb-2">
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="fs-5 fst-italic text-dark mb-2">"Saved £8,500 on hardcore from our Greenwich site. WasteMatch handled all EA paperwork - game changer!"</p>
-                        <p class="mb-0"><strong>John, Site Manager</strong><br>
-                        <span class="text-muted">10-home development, SE London</span></p>
+            <h2>From cost to revenue</h2>
+            <p class="lead">The same materials. Two different outcomes.</p>
+            <div class="comparison-visual">
+                <div class="comparison-visual-card">
+                    <img src="images/katie-rodriguez-qsVWEGNnIrM-unsplash.jpg" alt="Landfill site">
+                    <div class="comparison-overlay negative">
+                        <h3>Landfill</h3>
+                        <div class="amount">-£25,230</div>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">200t × £126.15/tonne</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Transparent Pricing Comparison Table -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">Traditional landfill vs. WasteMatch - see the difference</h2>
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="bg-danger bg-opacity-10 p-4 rounded-3 border border-danger h-100">
-                        <h3 class="h4 fw-bold text-danger mb-4">Traditional landfill costs</h3>
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Clean Hardcore:</span>
-                                <strong class="text-danger">£126.15/tonne</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Mixed Inert Waste:</span>
-                                <strong class="text-danger">£115-£140/tonne</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Soil:</span>
-                                <strong class="text-danger">£110-£130/tonne</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>+ Haulage:</span>
-                                <strong class="text-danger">£50-£100/load</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>+ Paperwork:</span>
-                                <strong class="text-danger">2-3 hours/admin time</strong>
-                            </div>
-                            <hr class="my-3">
-                            <div class="d-flex justify-content-between">
-                                <strong>Total 200t load:</strong>
-                                <strong class="h4 text-danger">£25,000-£28,000</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="bg-success bg-opacity-10 p-4 rounded-3 border border-success h-100">
-                        <h3 class="h4 fw-bold text-success mb-4">With WasteMatch</h3>
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Clean Hardcore:</span>
-                                <strong class="text-success">Earn £5-£15/tonne</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Mixed Inert Waste:</span>
-                                <strong class="text-success">£0-£5/tonne (cost neutral)</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Soil:</span>
-                                <strong class="text-success">Earn £3-£10/tonne</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Haulage:</span>
-                                <strong class="text-success">Often included or shared cost</strong>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Paperwork:</span>
-                                <strong class="text-success">Auto-generated, 5 minutes</strong>
-                            </div>
-                            <hr class="my-3">
-                            <div class="d-flex justify-content-between">
-                                <strong>Net 200t load:</strong>
-                                <strong class="h4 text-success">Earn £1,000-£3,000</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <p class="h3 fw-bold text-success">That's £24,000-£31,000 saved per 200t load!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Material-Specific Cards -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">What materials can you sell?</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="bg-white rounded-3 shadow-sm h-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop" 
-                             alt="Clean Concrete" 
-                             class="w-100" 
-                             style="height: 200px; object-fit: cover;">
-                        <div class="p-4">
-                            <h3 class="h5 fw-bold mb-2">Clean Concrete & Hardcore</h3>
-                            <p class="h4 fw-bold text-success mb-2">Earn: £5-£15/tonne</p>
-                            <p class="text-muted small mb-3">Crushed for Type 1 MOT or 6F2 aggregates</p>
-                            <a href="#waste-audit" class="btn btn-outline-success w-100">See current buyers in your area</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-white rounded-3 shadow-sm h-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=250&fit=crop" 
-                             alt="Clean Topsoil" 
-                             class="w-100" 
-                             style="height: 200px; object-fit: cover;">
-                        <div class="p-4">
-                            <h3 class="h5 fw-bold mb-2">Clean Topsoil</h3>
-                            <p class="h4 fw-bold text-success mb-2">Earn: £3-£10/tonne</p>
-                            <p class="text-muted small mb-3">For landscaping, farming, restoration</p>
-                            <a href="#waste-audit" class="btn btn-outline-success w-100">See current buyers in your area</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-white rounded-3 shadow-sm h-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400&h=250&fit=crop" 
-                             alt="Brick & Rubble" 
-                             class="w-100" 
-                             style="height: 200px; object-fit: cover;">
-                        <div class="p-4">
-                            <h3 class="h5 fw-bold mb-2">Brick & Rubble</h3>
-                            <p class="h4 fw-bold text-success mb-2">Cost neutral: £0-£5/tonne</p>
-                            <p class="text-muted small mb-3">For clean fill or recycling</p>
-                            <a href="#waste-audit" class="btn btn-outline-success w-100">See current buyers in your area</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Regulatory Compliance Section -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h2 class="h1 fw-bold text-primary mb-4">2026 Digital Waste Tracking Mandate? We've got you covered.</h2>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start">
-                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>Automated Waste Transfer Notes</strong>
-                                    <p class="text-muted small mb-0">No more paperwork</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start">
-                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>EA License Verification on Every User</strong>
-                                    <p class="text-muted small mb-0">Stop fraud before it starts</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start">
-                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>Full Audit Trail for Duty of Care</strong>
-                                    <p class="text-muted small mb-0">Ready for October 2026 inspections</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-start">
-                                <svg class="text-success me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>Carbon Reporting for Your ESG Goals</strong>
-                                    <p class="text-muted small mb-0">Automatic Scope 3 tracking</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <div class="bg-success bg-opacity-10 p-4 rounded-3 border border-success">
-                        <div class="mb-3">
-                            <svg width="60" height="60" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24" class="mx-auto">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <path d="M9 12l2 2 4-4"></path>
-                            </svg>
-                        </div>
-                        <h3 class="h5 fw-bold text-success">EA compliance ready</h3>
-                        <p class="text-muted small mb-0">Fully compliant with 2026 Digital Waste Tracking requirements</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How Site Managers Use WasteMatch -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">How site managers use WasteMatch</h2>
-            <div class="row g-4">
-                <div class="col-md-4 text-center">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <svg width="40" height="40" fill="none" stroke="#1e40af" stroke-width="2" viewBox="0 0 24 24">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                <polyline points="21 15 16 10 5 21"></polyline>
-                            </svg>
-                        </div>
-                        <h3 class="h5 fw-bold mb-3">1. Snap & Post</h3>
-                        <p class="text-muted mb-0">Take photo of your pile, add location</p>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <svg width="40" height="40" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="9" cy="7" r="4"></circle>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                            </svg>
-                        </div>
-                        <h3 class="h5 fw-bold mb-3">2. Match & Chat</h3>
-                        <p class="text-muted mb-0">Get quotes within hours, negotiate in-app</p>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
-                            <svg width="40" height="40" fill="none" stroke="#f59e0b" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                        </div>
-                        <h3 class="h5 fw-bold mb-3">3. We handle compliance</h3>
-                        <p class="text-muted mb-0">Auto-generated Waste Transfer Notes, EA audit trail</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Financial Examples with Updated Pricing -->
-    <section id="calculator" class="py-5 bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="h3 fw-bold text-primary mb-4">Real Example: 200 Tonnes Clean Fill</h2>
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <div class="bg-danger bg-opacity-10 p-4 rounded-3 border border-danger">
-                                <div class="h2 fw-bold text-danger mb-1">£25,230</div>
-                                <p class="mb-0 small">Landfill disposal cost (2025)<br>
-                                <span class="text-muted">200t × £126.15/tonne + haulage</span></p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="bg-success bg-opacity-10 p-4 rounded-3 border border-success">
-                                <div class="h2 fw-bold text-success mb-1">Earn £1,000-£3,000</div>
-                                <p class="mb-0 small">With WasteMatch<br>
-                                <span class="text-muted">£5-£15/tonne for clean materials</span></p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="bg-primary bg-opacity-10 p-4 rounded-3 border border-primary">
-                                <div class="h2 fw-bold text-primary mb-1">£24,000-£31,000</div>
-                                <p class="mb-0 small">Total difference<br>
-                                <span class="text-muted">Earn instead of paying</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h2 class="h3 fw-bold text-primary mb-4">Calculate your exact savings</h2>
-                    <div class="simple-calculator">
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Enter your tonnage:</label>
-                            <input type="number" id="quickTonnage" class="form-control form-control-lg" value="200" min="10" max="1000">
-                        </div>
-                        <div class="text-center">
-                            <div class="h3 fw-bold text-success mb-2" id="quickSavings">£24,000-£31,000</div>
-                            <p class="text-muted small mb-0">Estimated Difference</p>
-                            <p class="text-muted small">vs. landfill at £126.15/tonne</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Trust Badges -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center h3 fw-bold text-primary mb-5">Why site managers trust WasteMatch</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="mb-3">
-                            <svg width="48" height="48" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24" class="mx-auto">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                <path d="M9 12l2 2 4-4"></path>
-                            </svg>
-                        </div>
-                        <h4 class="h6 fw-bold mb-2">EA licensed partners</h4>
-                        <p class="text-muted small mb-0">Every user verified with Environment Agency license</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="mb-3">
-                            <svg width="48" height="48" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24" class="mx-auto">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                        </div>
-                        <h4 class="h6 fw-bold mb-2">Payment protection</h4>
-                        <p class="text-muted small mb-0">Escrow holds funds until materials accepted</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="mb-3">
-                            <svg width="48" height="48" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24" class="mx-auto">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                            </svg>
-                        </div>
-                        <h4 class="h6 fw-bold mb-2">Paperwork done</h4>
-                        <p class="text-muted small mb-0">Auto-generated Waste Transfer Notes, 2026 Digital Tracking ready</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 text-center">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="mb-3">
-                            <svg width="48" height="48" fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24" class="mx-auto">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                        </div>
-                        <h4 class="h6 fw-bold mb-2">Carbon positive</h4>
-                        <p class="text-muted small mb-0">Track CO₂ savings for ESG reporting, earn carbon credits</p>
+                <div class="comparison-visual-card">
+                    <img src="images/israel-andrade-YI_9SivVt_s-unsplash.jpg" alt="WasteMatch platform">
+                    <div class="comparison-overlay positive">
+                        <h3>WasteMatch</h3>
+                        <div class="amount">+£1,600</div>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">200t × £8/tonne</p>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-5">
-                <h4 class="h6 text-muted mb-3">As featured in / Partnered with</h4>
-                <div class="d-flex flex-wrap justify-content-center gap-4 align-items-center">
-                    <div class="bg-white p-3 rounded shadow-sm">
-                        <div class="text-muted small fw-semibold">UK Construction Weekly</div>
+                <div class="difference-box">
+                    <span class="label">Net difference</span>
+                    <span class="amount">£26,830</span>
+                    <span class="sub">Better off per 200t load</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Process - Icon-driven -->
+    <section class="process-section">
+        <div class="container">
+            <h2>How you get paid</h2>
+            <p class="lead">Three simple steps to turn waste into cash</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon" style="background: #dbeafe; color: var(--primary-blue);">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
                     </div>
-                    <div class="bg-white p-3 rounded shadow-sm">
-                        <div class="text-muted small fw-semibold">Builders Monthly</div>
+                    <h4>1. List</h4>
+                    <p>Take photos, add tonnage. 2 minutes.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon" style="background: #dcfce7; color: var(--success-green);">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
                     </div>
-                    <div class="bg-white p-3 rounded shadow-sm">
-                        <div class="text-muted small fw-semibold">Waste Management Today</div>
+                    <h4>2. Match</h4>
+                    <p>Verified buyers bid £5-£15/tonne.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon" style="background: #fef3c7; color: #f59e0b;">
+                        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h4>3. Get Paid</h4>
+                    <p>Money in your account. We handle paperwork.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials You Can Sell - Image-driven -->
+    <section class="bg-white">
+        <div class="container">
+            <h2>Materials you can sell</h2>
+            <p class="lead">Your waste is someone else's raw material</p>
+            <div class="material-grid">
+                <div class="material-card">
+                    <img src="images/concrete.jpg" alt="Clean Concrete">
+                    <div class="material-card-content">
+                        <h4>Clean Concrete & Hardcore</h4>
+                        <div class="material-price">£5-£15/tonne</div>
+                        <p>Crushed for Type 1 MOT or 6F2 aggregates</p>
+                        <a href="#waste-audit" class="btn btn-outline-success w-100">See buyers</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="images/soil.jpg" alt="Topsoil">
+                    <div class="material-card-content">
+                        <h4>Clean Topsoil</h4>
+                        <div class="material-price">£3-£10/tonne</div>
+                        <p>For landscaping, farming, restoration</p>
+                        <a href="#waste-audit" class="btn btn-outline-success w-100">See buyers</a>
+                    </div>
+                </div>
+                <div class="material-card">
+                    <img src="images/brick3.jpg" alt="Brick & Rubble">
+                    <div class="material-card-content">
+                        <h4>Brick & Rubble</h4>
+                        <div class="material-price">£0-£5/tonne</div>
+                        <p>For clean fill or recycling</p>
+                        <a href="#waste-audit" class="btn btn-outline-success w-100">See buyers</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Area Specificity -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">Serving London & South East</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="bg-light p-4 rounded-3 h-100">
-                        <h3 class="h5 fw-bold mb-3">Central London</h3>
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-1">• Westminster</li>
-                            <li class="mb-1">• Camden</li>
-                            <li class="mb-1">• Islington</li>
-                            <li class="mb-1">• Hackney</li>
-                            <li class="mb-1">• Tower Hamlets</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-light p-4 rounded-3 h-100">
-                        <h3 class="h5 fw-bold mb-3">East London / Essex</h3>
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-1">• Newham</li>
-                            <li class="mb-1">• Barking & Dagenham</li>
-                            <li class="mb-1">• Redbridge</li>
-                            <li class="mb-1">• Havering</li>
-                            <li class="mb-1">• Essex (Basildon, Thurrock)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-light p-4 rounded-3 h-100">
-                        <h3 class="h5 fw-bold mb-3">South London / Kent</h3>
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-1">• Greenwich</li>
-                            <li class="mb-1">• Lewisham</li>
-                            <li class="mb-1">• Bexley</li>
-                            <li class="mb-1">• Bromley</li>
-                            <li class="mb-1">• Kent (Dartford, Gravesend)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-4">
-                <p class="text-muted">More areas coming soon. <a href="#waste-audit" class="text-success fw-semibold">Request your area →</a></p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Competitive Comparison Table -->
-    <section class="py-5 bg-light">
+    <!-- Simple Trust Section - Icon-based -->
+    <section class="trust-section">
         <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">Why WasteMatch beats traditional waste removal</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered bg-white">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>Feature</th>
-                            <th class="text-center">Traditional Waste Removal</th>
-                            <th class="text-center">WasteMatch</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Cost per tonne</strong></td>
-                            <td class="text-center text-danger">Pay £126.15+</td>
-                            <td class="text-center text-success"><strong>Earn £5-£15</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Paperwork</strong></td>
-                            <td class="text-center">You handle it</td>
-                            <td class="text-center text-success"><strong>We automate it</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Carbon Impact</strong></td>
-                            <td class="text-center text-danger">Landfill = emissions</td>
-                            <td class="text-center text-success"><strong>Reuse = carbon credits</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Payment Terms</strong></td>
-                            <td class="text-center text-danger">Pay upfront</td>
-                            <td class="text-center text-success"><strong>Earn on delivery</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>2026 Digital Tracking</strong></td>
-                            <td class="text-center">Manual compliance</td>
-                            <td class="text-center text-success"><strong>Built-in compliance</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Buyer Network Visibility -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">Live marketplace activity</h2>
-            <p class="text-center text-muted mb-4">Current buyers seeking materials in your area</p>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="bg-light p-4 rounded-3 border border-success border-start border-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <strong class="text-primary">Aggregate UK Ltd</strong>
-                            <span class="badge bg-success">Verified</span>
-                        </div>
-                        <p class="text-muted small mb-2">📍 Greenwich</p>
-                        <p class="mb-2">Seeking 200t clean concrete</p>
-                        <p class="h5 fw-bold text-success mb-0">Offering £8.50/tonne</p>
-                    </div>
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <svg fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M9 12l2 2 4-4"></path>
+                    </svg>
+                    <h4>EA Licensed</h4>
+                    <p>All users verified</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="bg-light p-4 rounded-3 border border-success border-start border-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <strong class="text-primary">Greenwich Landscaping</strong>
-                            <span class="badge bg-success">Verified</span>
-                        </div>
-                        <p class="text-muted small mb-2">📍 SE10</p>
-                        <p class="mb-2">Seeking 100t topsoil</p>
-                        <p class="h5 fw-bold text-success mb-0">Offering £6/tonne</p>
-                    </div>
+                <div class="trust-card">
+                    <svg fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    <h4>Payment Protected</h4>
+                    <p>Escrow holds funds</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="bg-light p-4 rounded-3 border border-success border-start border-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <strong class="text-primary">Fast Grab Hire</strong>
-                            <span class="badge bg-success">Verified</span>
-                        </div>
-                        <p class="text-muted small mb-2">📍 Tower Hamlets</p>
-                        <p class="mb-2">Any clean fill on route to Essex</p>
-                        <p class="h5 fw-bold text-success mb-0">Flexible pricing</p>
-                    </div>
+                <div class="trust-card">
+                    <svg fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    <h4>2026 Ready</h4>
+                    <p>Auto compliance</p>
                 </div>
-                <div class="col-md-6">
-                    <div class="bg-light p-4 rounded-3 border border-primary border-start border-4">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <strong class="text-primary">+ 12 more active buyers</strong>
-                            <span class="badge bg-primary">Live</span>
-                        </div>
-                        <p class="text-muted small mb-2">📍 Various locations</p>
-                        <p class="mb-2">Sign up to see full details & contact buyers</p>
-                        <a href="#waste-audit" class="btn btn-primary btn-sm">View all buyers</a>
-                    </div>
+                <div class="trust-card">
+                    <svg fill="none" stroke="#22c55e" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                    <h4>Carbon Positive</h4>
+                    <p>Track CO₂ savings</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Regulatory Urgency Section -->
-    <section class="py-5 bg-warning bg-opacity-10">
+
+
+    <!-- Simple Pricing -->
+    <section class="pricing-section">
         <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-4">2026 Digital Waste Tracking Mandate - are you ready?</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="bg-white p-4 rounded-3 shadow-sm">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-3 d-flex align-items-start">
-                                <svg class="text-warning me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>Mandatory digital tracking starts October 2026</strong>
-                                    <p class="text-muted small mb-0">All waste transfers must be digitally recorded</p>
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex align-items-start">
-                                <svg class="text-warning me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>WasteMatch automates compliance</strong>
-                                    <p class="text-muted small mb-0">No manual entry required</p>
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex align-items-start">
-                                <svg class="text-warning me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>Auto-generated EA paperwork</strong>
-                                    <p class="text-muted small mb-0">Waste Transfer Notes created automatically</p>
-                                </div>
-                            </li>
-                            <li class="mb-3 d-flex align-items-start">
-                                <svg class="text-warning me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong>Full audit trail for inspections</strong>
-                                    <p class="text-muted small mb-0">Ready for EA compliance checks</p>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-start">
-                                <svg class="text-danger me-2 flex-shrink-0" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"></path></svg>
-                                <div>
-                                    <strong class="text-danger">Avoid £5,000+ fines for non-compliance</strong>
-                                    <p class="text-muted small mb-0">Get compliant before October 2026</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+            <h2>List once, get paid forever</h2>
+            <p class="lead">Free to list. 8% fee when you earn.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">£0</div>
+                    <div class="price-label">per month</div>
+                    <ul>
+                        <li>✓ 3 loads/month</li>
+                        <li>✓ Basic matching</li>
+                        <li>✓ 8% fee</li>
+                    </ul>
+                    <a href="#waste-audit" class="btn btn-outline-success w-100 mt-3">Get started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2" style="position: absolute; top: 0; right: 0; margin: 0.5rem;">Popular</span>
+                    <h3>Pro</h3>
+                    <div class="price">£19</div>
+                    <div class="price-label">per month</div>
+                    <ul>
+                        <li>✓ Unlimited loads</li>
+                        <li>✓ Priority matching</li>
+                        <li>✓ 8% fee</li>
+                    </ul>
+                    <a href="#waste-audit" class="btn btn-success w-100 mt-3">Start earning</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Chat Demo with Carbon Benefits -->
-    <section class="py-5 bg-white">
+    <!-- Real Math Calculator -->
+    <section id="real-math" class="real-math">
         <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">See how it works - live chat demo</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="bg-light rounded-3 p-4 shadow-sm">
-                        <div class="bg-success text-white p-3 rounded-top d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Match conversation</strong>
-                                <div class="small">200t Clean Fill - SE London</div>
-                            </div>
-                            <span class="badge bg-light text-success">Verified</span>
-                        </div>
-                        <div class="bg-white p-4 rounded-bottom" style="min-height: 300px;">
-                            <div class="mb-3">
-                                <div class="d-flex align-items-start mb-2">
-                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px; font-size: 0.75rem;">B</div>
-                                    <div class="flex-grow-1">
-                                        <div class="bg-light p-3 rounded">
-                                            <strong class="small">Buyer:</strong> Need 200t clean fill in SE London.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="d-flex align-items-start mb-2 justify-content-end">
-                                    <div class="flex-grow-1 text-end me-2">
-                                        <div class="bg-success bg-opacity-10 p-3 rounded">
-                                            <strong class="small">Platform:</strong> Matched with 3 haulers within 5km. Best quote: £8/tonne
-                                        </div>
-                                    </div>
-                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; font-size: 0.75rem;">P</div>
-                                </div>
-                            </div>
-                            <div class="carbon-message">
-                                <div class="d-flex align-items-center mb-1">
-                                    <svg class="text-success me-2" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                        <path d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <strong>Platform:</strong>
-                                </div>
-                                <p class="mb-0 small">This match diverts 200t from landfill ≈ 100 tonnes CO₂e saved</p>
-                            </div>
-                        </div>
+            <h2 class="text-center mb-5">See exactly how much you'll earn</h2>
+            
+            <div class="calculator">
+                <div class="inputs">
+                    <div class="input-group">
+                        <label>Material Type:</label>
+                        <select id="materialType" class="form-select" style="font-size: 0.9375rem; padding: 0.75rem 1rem;">
+                            <option value="8">Clean Concrete/Hardcore</option>
+                            <option value="6">Topsoil</option>
+                            <option value="2">Brick & Rubble</option>
+                            <option value="3">Mixed Inert</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Tonnes to Sell:</label>
+                        <input type="range" id="tonnageSlider" min="10" max="1000" value="200" class="form-range">
+                        <span class="value-display" id="tonnageDisplay">200 tonnes</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Updated Pricing Tiers -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">Simple pricing for every site</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="bg-white rounded-3 shadow-sm p-4 h-100">
-                        <h3 class="h4 fw-bold mb-3">Free</h3>
-                        <div class="h2 fw-bold text-success mb-1">£0</div>
-                        <p class="text-muted small mb-4">per month</p>
-                        <p class="small text-muted mb-3">For small sites: 3 loads/month, 5% fee</p>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2">✓ 3 loads per month</li>
-                            <li class="mb-2">✓ Basic matching</li>
-                            <li class="mb-2">✓ EA verification</li>
-                        </ul>
-                        <a href="#waste-audit" class="btn btn-outline-success w-100 mt-3">Get started</a>
+                
+                <div class="results">
+                    <div class="result-row">
+                        <span>Landfill Cost:</span>
+                        <span class="cost" id="landfillCost">-£25,230</span>
+                    </div>
+                    <div class="result-row">
+                        <span>WasteMatch Earnings:</span>
+                        <span class="earnings" id="wasteMatchEarnings">+£1,600</span>
+                    </div>
+                    <div class="result-row total">
+                        <span>Net Difference:</span>
+                        <span class="difference" id="netDifference">+£26,830 BETTER OFF</span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="bg-white rounded-3 shadow-lg p-4 h-100 border border-success border-3 position-relative">
-                        <span class="badge bg-success position-absolute top-0 end-0 m-2">Most Popular</span>
-                        <h3 class="h4 fw-bold mb-3">Pro</h3>
-                        <div class="h2 fw-bold text-success mb-1">£19</div>
-                        <p class="text-muted small mb-4">per month</p>
-                        <p class="small text-muted mb-3">For active sites: Unlimited loads, priority matching, 10% fee, compliance dashboard</p>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2">✓ Unlimited loads</li>
-                            <li class="mb-2">✓ Priority matching</li>
-                            <li class="mb-2">✓ Compliance dashboard</li>
-                            <li class="mb-2">✓ 10% transaction fee</li>
-                        </ul>
-                        <a href="#waste-audit" class="btn btn-success w-100 mt-3">Start saving today</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bg-white rounded-3 shadow-sm p-4 h-100">
-                        <h3 class="h4 fw-bold mb-3">Enterprise</h3>
-                        <div class="h2 fw-bold text-success mb-1">£99</div>
-                        <p class="text-muted small mb-4">per month</p>
-                        <p class="small text-muted mb-3">For large developers & brokers</p>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2">✓ Everything in Pro</li>
-                            <li class="mb-2">✓ API access</li>
-                            <li class="mb-2">✓ Volume pricing (5%)</li>
-                            <li class="mb-2">✓ Dedicated support</li>
-                        </ul>
-                        <a href="#waste-audit" class="btn btn-outline-primary w-100 mt-3">Contact sales</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Testimonials -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center h1 fw-bold text-primary mb-5">What site managers say</h2>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="d-flex mb-3">
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="fst-italic text-dark mb-3">"Saved £8,500 on hardcore from our Greenwich site. WasteMatch handled all EA paperwork - game changer!"</p>
-                        <p class="mb-0"><strong>John, Site Manager</strong><br>
-                        <span class="text-muted">10-home development, SE London</span></p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="bg-white p-4 rounded-3 shadow-sm h-100">
-                        <div class="d-flex mb-3">
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg class="text-warning" width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="fst-italic text-dark mb-3">"Filled 3 empty runs this week with verified loads. Added £2,400 revenue."</p>
-                        <p class="mb-0"><strong>Dave, Grab Hire Operator</strong><br>
-                        <span class="text-muted">Essex</span></p>
-                    </div>
-                </div>
+                
+                <a href="#waste-audit" class="btn btn-success btn-lg w-100 mt-4">Start earning today →</a>
             </div>
         </div>
     </section>
@@ -1184,6 +1624,45 @@
                     this.reset();
                 });
             }
+        });
+        
+        // Real Math Calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            const tonnageSlider = document.getElementById('tonnageSlider');
+            const tonnageDisplay = document.getElementById('tonnageDisplay');
+            const materialType = document.getElementById('materialType');
+            const landfillCostEl = document.getElementById('landfillCost');
+            const wasteMatchEarningsEl = document.getElementById('wasteMatchEarnings');
+            const netDifferenceEl = document.getElementById('netDifference');
+            
+            function updateCalculator() {
+                const tonnage = parseFloat(tonnageSlider.value) || 200;
+                const pricePerTonne = parseFloat(materialType.value) || 8;
+                const landfillTax = 126.15;
+                
+                // Update display
+                tonnageDisplay.textContent = tonnage + ' tonnes';
+                
+                // Calculate costs
+                const landfillCost = tonnage * landfillTax;
+                const wasteMatchEarnings = tonnage * pricePerTonne;
+                const netDifference = landfillCost + wasteMatchEarnings; // Cost avoided + earnings
+                
+                // Update results
+                landfillCostEl.textContent = '-£' + landfillCost.toLocaleString('en-GB', {maximumFractionDigits: 0});
+                wasteMatchEarningsEl.textContent = '+£' + wasteMatchEarnings.toLocaleString('en-GB', {maximumFractionDigits: 0});
+                netDifferenceEl.textContent = '+£' + netDifference.toLocaleString('en-GB', {maximumFractionDigits: 0}) + ' BETTER OFF';
+            }
+            
+            if (tonnageSlider) {
+                tonnageSlider.addEventListener('input', updateCalculator);
+            }
+            if (materialType) {
+                materialType.addEventListener('change', updateCalculator);
+            }
+            
+            // Initial calculation
+            updateCalculator();
         });
     </script>
 </body>
