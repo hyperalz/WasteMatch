@@ -622,69 +622,107 @@
             font-size: 1rem;
             opacity: 0.95;
         }
-        /* Buyer explanation section - Anrok-style */
+        /* Buyer explanation section - HubSpot-inspired */
+        .buyer-explanation {
+            padding: var(--spacing-2xl) 0;
+            background: var(--bg-light);
+        }
+        .buyer-explanation .container {
+            max-width: 1200px;
+        }
+        .buyer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
         .buyer-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-md);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
             transition: transform 0.2s, box-shadow 0.2s;
             height: 100%;
         }
         .buyer-card:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
         }
-        .buyer-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .buyer-card .icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: var(--spacing-md);
         }
-        .buyer-action {
-            color: #6b7280;
-            margin-bottom: 1.5rem;
+        .buyer-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            text-align: center;
+        }
+        .buyer-card > p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+            line-height: 1.5;
         }
         .economics {
             background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
             border: 1px solid var(--border-color);
+            margin-top: var(--spacing-md);
         }
         .economics .line {
             display: flex;
             justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e5e7eb;
+            align-items: center;
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.875rem;
         }
         .economics .line:last-child {
             border-bottom: none;
         }
         .money-in {
-            color: #22c55e;
-            font-weight: bold;
+            color: var(--success-green);
+            font-weight: 600;
         }
         .money-out {
-            color: #6b7280;
+            color: var(--text-secondary);
         }
         .profit, .saving {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 2px solid #22c55e;
+            margin-top: var(--spacing-sm);
+            padding-top: var(--spacing-sm);
+            border-top: 2px solid var(--success-green);
             display: flex;
             justify-content: space-between;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 0.9375rem;
         }
         .profit .highlight, .saving .highlight {
-            color: #22c55e;
+            color: var(--success-green);
         }
         .key-insight-box {
             background: #eff6ff;
             border-left: 4px solid var(--primary-blue);
-            padding: 2.5rem;
-            border-radius: 1rem;
-            margin-top: 3rem;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin-top: var(--spacing-xl);
             box-shadow: var(--shadow-sm);
+        }
+        .key-insight-box h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        .key-insight-box p {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
         /* Real math calculator - Anrok-style */
         .real-math {
@@ -1146,6 +1184,9 @@
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
+            .buyer-grid {
+                grid-template-columns: 1fr;
+            }
             .flow-comparison {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1342,6 +1383,76 @@
         </div>
     </section>
 
+    <!-- Buyer Explanation Section -->
+    <section class="buyer-explanation">
+        <div class="container">
+            <h2>Who actually pays for construction rubble?</h2>
+            <p class="lead">Your 'waste' is valuable raw material for these verified businesses</p>
+            <div class="buyer-grid">
+                <div class="buyer-card">
+                    <div class="icon">🏭</div>
+                    <h3>Aggregate Recyclers</h3>
+                    <p>They take your clean concrete, crush it into new aggregates, and sell for £30-40/tonne</p>
+                    <div class="economics">
+                        <div class="line">
+                            <span>Pay you:</span>
+                            <span class="money-in">£8-12/tonne</span>
+                        </div>
+                        <div class="line">
+                            <span>Sell as aggregate:</span>
+                            <span class="money-out">£30-40/tonne</span>
+                        </div>
+                        <div class="profit">
+                            <span>Their profit:</span>
+                            <span class="highlight">£18-32/tonne</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buyer-card">
+                    <div class="icon">🌿</div>
+                    <h3>Landscapers & Golf Courses</h3>
+                    <p>They need clean soil/hardcore for projects, saving 50-75% vs bought materials</p>
+                    <div class="economics">
+                        <div class="line">
+                            <span>Normal material cost:</span>
+                            <span class="money-out">£15-25/tonne</span>
+                        </div>
+                        <div class="line">
+                            <span>Pay you:</span>
+                            <span class="money-in">£5-10/tonne</span>
+                        </div>
+                        <div class="saving">
+                            <span>They save:</span>
+                            <span class="highlight">50-75%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="buyer-card">
+                    <div class="icon">🏗️</div>
+                    <h3>Other Construction Sites</h3>
+                    <p>They need cheap fill for foundations, saving 80% vs new aggregate</p>
+                    <div class="economics">
+                        <div class="line">
+                            <span>New aggregate cost:</span>
+                            <span class="money-out">£50-60/tonne</span>
+                        </div>
+                        <div class="line">
+                            <span>Pay you for fill:</span>
+                            <span class="money-in">£8-12/tonne</span>
+                        </div>
+                        <div class="saving">
+                            <span>They save:</span>
+                            <span class="highlight">75-85%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="key-insight-box">
+                <h3>💡 The simple economics</h3>
+                <p><strong>Your 'waste' = their cheap raw materials.</strong> They happily pay you because they save even more money. It's not charity - it's smart business for everyone.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Simple Trust Section - Icon-based -->
     <section class="trust-section">
