@@ -869,19 +869,28 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
             padding: var(--spacing-md);
             color: white;
         }
         .comparison-overlay h3 {
             font-size: 1.125rem;
             font-weight: 600;
-            margin-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
         }
         .comparison-overlay .amount {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            line-height: 1;
+            line-height: 1.2;
+            margin-top: 0.5rem;
+        }
+        .comparison-overlay .breakdown {
+            font-size: 0.875rem;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
+        .comparison-overlay .breakdown div {
+            margin-bottom: 0.25rem;
         }
         .comparison-overlay.negative .amount {
             color: #fca5a5;
@@ -1223,16 +1232,24 @@
                     <img src="images/katie-rodriguez-qsVWEGNnIrM-unsplash.jpg" alt="Landfill site">
                     <div class="comparison-overlay negative">
                         <h3>Landfill</h3>
-                        <div class="amount">-£25,230</div>
-                        <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">200t × £126.15/tonne</p>
+                        <div class="breakdown">
+                            <div>Cost: £25,230</div>
+                            <div>Revenue: £0</div>
+                        </div>
+                        <div class="amount">Net: -£25,230</div>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.875rem; opacity: 0.9;">200t × £126.15/tonne</p>
                     </div>
                 </div>
                 <div class="comparison-visual-card">
                     <img src="images/israel-andrade-YI_9SivVt_s-unsplash.jpg" alt="WasteMatch platform">
                     <div class="comparison-overlay positive">
                         <h3>WasteMatch</h3>
-                        <div class="amount">+£1,600</div>
-                        <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">200t × £8/tonne</p>
+                        <div class="breakdown">
+                            <div>Cost: £0</div>
+                            <div>Revenue: £1,600</div>
+                        </div>
+                        <div class="amount">Net: +£1,600</div>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.875rem; opacity: 0.9;">200t × £8/tonne</p>
                     </div>
                 </div>
             </div>
