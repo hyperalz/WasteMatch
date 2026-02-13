@@ -268,15 +268,16 @@ function initializeROICalculator() {
     if (!materialType || !volumeSlider) return;
     
     // Material pricing data (per ton)
+    // Inert materials (concrete, topsoil, brick): disposal £20-60/t. Non-inert (wood, metals, plastics): landfill tax £126/t
     const materialData = {
         concrete: {
-            landfill: 126.15,
-            matched: 21.5, // average of £18-25
+            landfill: 40, // £40/t typical disposal for clean inert (gate fee + haulage)
+            matched: 10, // £8-12/t from aggregate recyclers
             carbonPerTon: 500, // kg CO₂e
             hoursPer100Ton: 3
         },
         wood: {
-            landfill: 126.15,
+            landfill: 126.15, // standard rate for non-inert
             matched: 60, // average of £45-75
             carbonPerTon: 800,
             hoursPer100Ton: 3.5

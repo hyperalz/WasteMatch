@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Turn construction waste into cash. Earn £5-£15/tonne vs paying £126.15 landfill tax. Free site audit. EA licensed waste matching platform. 2026 Digital Waste Tracking ready.">
+    <meta name="description" content="Turn clean concrete, hardcore, brick & topsoil into cash. Earn £5-£15/tonne from verified buyers instead of paying £20-£60+ to dispose. 2026 Digital Waste Tracking ready.">
     <meta name="keywords" content="construction waste removal London, cheap muck away Greenwich, EA licensed waste removal, construction waste disposal prices, earn from construction waste, waste matching platform">
-    <title>WasteMatch | Turn Your Construction Waste Into Cash - Earn £5-£15/Tonne Instead of Paying £126.15 to Landfill</title>
+    <title>WasteMatch | Turn Clean Construction Waste Into Cash - Earn £5-£15/Tonne Instead of Paying £20-£60+ to Dispose</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@
           "name": "How much can I earn from my construction waste?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can earn £5-£15/tonne for clean materials like concrete and hardcore, £3-£10/tonne for topsoil, and £0-£5/tonne for brick and rubble. This compares to paying £126.15/tonne for landfill disposal."
+            "text": "You can earn £5-£15/tonne for clean materials like concrete and hardcore, £3-£10/tonne for topsoil, and £0-£5/tonne for brick and rubble. This compares to paying £20-£60+ per tonne to dispose of clean inert waste."
           }
         },
         {
@@ -1256,8 +1256,8 @@
                 </svg>
                 2026 Digital Tracking Ready
             </div>
-            <h1>Turn your construction waste into cash</h1>
-            <p class="subheadline">Stop paying £126/tonne to landfill. Get paid £5-£15/tonne by verified buyers. We handle all compliance automatically.</p>
+            <h1>Turn clean concrete, hardcore, brick & topsoil into cash</h1>
+            <p class="subheadline">Earn £5-£15 per tonne from verified buyers instead of paying £20-£60+ to dispose of it. We handle the 2026 digital waste tracking, duty of care and paperwork — you just upload photos.</p>
             <div class="hero-cta">
                 <a href="#waste-audit" class="btn btn-success btn-lg px-5 py-3 fw-semibold" style="background: #22c55e; border: none; border-radius: 0.5rem;">
                     Get your free site waste audit
@@ -1290,15 +1290,15 @@
             <p class="lead">The same materials. Two different outcomes.</p>
             <div class="comparison-visual">
                 <div class="comparison-visual-card">
-                    <img src="images/katie-rodriguez-qsVWEGNnIrM-unsplash.jpg" alt="Landfill site">
+                    <img src="images/katie-rodriguez-qsVWEGNnIrM-unsplash.jpg" alt="Disposal site">
                     <div class="comparison-overlay negative">
-                        <h3>Landfill</h3>
+                        <h3>Traditional disposal</h3>
                         <div class="breakdown">
-                            <div>Cost: £25,230</div>
+                            <div>Cost: £8,000</div>
                             <div>Revenue: £0</div>
                         </div>
-                        <div class="amount">Net: -£25,230</div>
-                        <p style="margin: 0.5rem 0 0; font-size: 0.875rem; opacity: 0.9;">200t × £126.15/tonne</p>
+                        <div class="amount">Net: -£8,000</div>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.875rem; opacity: 0.9;">200t × £40/tonne (typical inert disposal)</p>
                     </div>
                 </div>
                 <div class="comparison-visual-card">
@@ -1317,7 +1317,7 @@
             <div class="text-center mt-5">
                 <div class="difference-box">
                     <span class="label">Net difference</span>
-                    <span class="amount">£26,830</span>
+                    <span class="amount">£9,600</span>
                     <span class="sub">Better off per 200t load</span>
                 </div>
             </div>
@@ -1358,7 +1358,7 @@
                         £
                     </div>
                     <h4>3. Get Paid</h4>
-                    <p>Money in your account. We handle paperwork.</p>
+                    <p>Money in your account. We handle duty of care and transfer notes.</p>
                 </div>
             </div>
         </div>
@@ -1498,7 +1498,7 @@
                         <polyline points="14 2 14 8 20 8"></polyline>
                     </svg>
                     <h4>2026 Ready</h4>
-                    <p>Auto compliance</p>
+                    <p>Built for digital tracking</p>
                 </div>
                 <div class="trust-card">
                     <div style="font-size: 2.5rem; font-weight: 700; color: #22c55e; line-height: 1;">£</div>
@@ -1554,10 +1554,10 @@
                     <div class="input-group">
                         <label>Material Type:</label>
                         <select id="materialType" class="form-select" style="font-size: 0.9375rem; padding: 0.75rem 1rem;">
-                            <option value="8">Clean Concrete/Hardcore</option>
-                            <option value="6">Topsoil</option>
-                            <option value="2">Brick & Rubble</option>
-                            <option value="3">Mixed Inert</option>
+                            <option value="8" data-disposal="40">Clean Concrete/Hardcore</option>
+                            <option value="6" data-disposal="30">Topsoil</option>
+                            <option value="2" data-disposal="25">Brick & Rubble</option>
+                            <option value="5" data-disposal="35">Mixed Inert</option>
                         </select>
                     </div>
                     
@@ -1570,8 +1570,8 @@
                 
                 <div class="results">
                     <div class="result-row">
-                        <span>Landfill Cost:</span>
-                        <span class="cost" id="landfillCost">-£25,230</span>
+                        <span>Disposal cost (avoided):</span>
+                        <span class="cost" id="landfillCost">-£8,000</span>
                     </div>
                     <div class="result-row">
                         <span>WasteMatch Earnings:</span>
@@ -1579,7 +1579,7 @@
                     </div>
                     <div class="result-row total">
                         <span>Net Difference:</span>
-                        <span class="difference" id="netDifference">+£26,830 BETTER OFF</span>
+                        <span class="difference" id="netDifference">+£9,600 BETTER OFF</span>
                     </div>
                 </div>
                 
@@ -1610,7 +1610,7 @@
                             <div class="mb-3">
                                 <span class="text-warning">★★★★★</span>
                             </div>
-                            <p class="mb-0">"Saved £8,500 on our last site's hardcore. WasteMatch handled all the EA paperwork - game changer for us. We're using it on every project now."</p>
+                            <p class="mb-0">"Saved £8,500 on our last site's hardcore. WasteMatch sorted the duty of care and transfer notes — game changer for us. We're using it on every project now."</p>
                         </div>
                     </div>
                 </div>
@@ -1628,7 +1628,7 @@
                             <div class="mb-3">
                                 <span class="text-warning">★★★★☆</span>
                             </div>
-                            <p class="mb-0">"Found a buyer for 300 tonnes of clean concrete within 48 hours. The compliance dashboard saved us hours of paperwork. Highly recommend."</p>
+                            <p class="mb-0">"Found a buyer for 300 tonnes of clean concrete within 48 hours. The platform made it easy to sort paperwork and duty of care. Highly recommend."</p>
                         </div>
                     </div>
                 </div>
@@ -1646,7 +1646,7 @@
                             <div class="mb-3">
                                 <span class="text-warning">★★★★★</span>
                             </div>
-                            <p class="mb-0">"Turned what used to cost us £25k into £2k revenue. The platform is simple, buyers are verified, and we get paid fast. No brainer."</p>
+                            <p class="mb-0">"Saved £8k on disposal and earned £2k on our last project. The platform is simple, buyers are verified, and we get paid fast. No brainer."</p>
                         </div>
                     </div>
                 </div>
@@ -1857,17 +1857,17 @@
             if (heroBadges) observer.observe(heroBadges, { childList: true, subtree: true });
         });
         
-        // Quick calculator
+        // Quick calculator (uses real disposal costs £20-60/t for inert waste)
         document.addEventListener('DOMContentLoaded', function() {
             const quickTonnage = document.getElementById('quickTonnage');
             if (quickTonnage) {
                 quickTonnage.addEventListener('input', function() {
                     const tonnage = parseFloat(this.value) || 0;
-                    const landfillCost = tonnage * 126.15;
+                    const disposalCost = tonnage * 40; // £40/t middle of £20-60 range
                     const minEarn = tonnage * 5; // Minimum earn £5/tonne
                     const maxEarn = tonnage * 15; // Maximum earn £15/tonne
-                    const minDiff = landfillCost - minEarn;
-                    const maxDiff = landfillCost - maxEarn;
+                    const minDiff = disposalCost + minEarn; // Cost avoided + earnings
+                    const maxDiff = disposalCost + maxEarn;
                     const savingsEl = document.getElementById('quickSavings');
                     if (savingsEl) {
                         savingsEl.textContent = '£' + minDiff.toLocaleString('en-GB', {maximumFractionDigits: 0}) + '-£' + maxDiff.toLocaleString('en-GB', {maximumFractionDigits: 0});
@@ -1907,7 +1907,7 @@
             }
         });
         
-        // Real Math Calculator
+        // Real Math Calculator (uses real inert waste disposal costs £20-60/t, not landfill tax)
         document.addEventListener('DOMContentLoaded', function() {
             const tonnageSlider = document.getElementById('tonnageSlider');
             const tonnageDisplay = document.getElementById('tonnageDisplay');
@@ -1918,19 +1918,20 @@
             
             function updateCalculator() {
                 const tonnage = parseFloat(tonnageSlider.value) || 200;
+                const selectedOption = materialType.options[materialType.selectedIndex];
                 const pricePerTonne = parseFloat(materialType.value) || 8;
-                const landfillTax = 126.15;
+                const disposalCostPerTonne = parseFloat(selectedOption?.dataset?.disposal) || 40; // £20-60/t typical for clean inert
                 
                 // Update display
                 tonnageDisplay.textContent = tonnage + ' tonnes';
                 
-                // Calculate costs
-                const landfillCost = tonnage * landfillTax;
+                // Calculate: disposal cost avoided + earnings
+                const disposalCost = tonnage * disposalCostPerTonne;
                 const wasteMatchEarnings = tonnage * pricePerTonne;
-                const netDifference = landfillCost + wasteMatchEarnings; // Cost avoided + earnings
+                const netDifference = disposalCost + wasteMatchEarnings; // Cost avoided + earnings
                 
                 // Update results
-                landfillCostEl.textContent = '-£' + landfillCost.toLocaleString('en-GB', {maximumFractionDigits: 0});
+                landfillCostEl.textContent = '-£' + disposalCost.toLocaleString('en-GB', {maximumFractionDigits: 0});
                 wasteMatchEarningsEl.textContent = '+£' + wasteMatchEarnings.toLocaleString('en-GB', {maximumFractionDigits: 0});
                 netDifferenceEl.textContent = '+£' + netDifference.toLocaleString('en-GB', {maximumFractionDigits: 0}) + ' BETTER OFF';
             }
